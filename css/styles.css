@@ -1,0 +1,113 @@
+/*- - - - - - */
+/*R E S E T*/
+/*- - - - - - */
+*, *::before, *::after{
+    box-sizing: border-box; 
+}
+
+*{
+    margin: 0; 
+    padding: 0; 
+}
+
+ul[role='list'], ol[role='list']{
+    list-style: none; 
+}
+
+html:focus-within{
+    scroll-behavior: smooth; 
+}
+
+a:not([class]){
+    text-decoration-skip-ink: auto; 
+}
+
+img, picture, svg, video, canvas{
+    max-width: 100%;
+    height: auto; 
+    vertical-align: middle; 
+    font-style: italic; 
+    background-repeat: no-repeat; 
+    background-size: cover;
+}
+
+input, button, textarea, select{
+    font: inherit; 
+}
+
+@media (prefers-reduced-motion: reduce){
+    html:focus-within {
+        scroll-behavior: auto;
+    }
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+        transition: none;
+    }
+}
+
+body, html{
+    height: 100%; 
+    scroll-behavior: smooth; 
+}
+/*- - - - - - */
+/* F O N T S */
+/*- - - - - - */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+/*- - - - - - */
+/* V A R I A B L E S */
+/*- - - - - - */
+:root {
+    --color-1: #0009;
+    --color-2: #fff9;
+    --font-fm: Poppins, sans-serif;
+}
+/*- - - - - - */
+/* G E N E R A L */
+/*- - - - - - */
+body { 
+    color: var(--color-2);
+    font-family: var(--font-fm);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    main{
+        header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            h1{
+                font-size: 4.5rem;
+                font-weight: 200;
+            }
+            h2{
+                font-size: 2rem;
+                font-weight: 500;
+            }
+            h3{
+                border-radius: 20px;
+                background-color: var(--color-1);
+                color: var(--color-2);
+                padding: 4px 12px;
+                font-weight: 500;
+
+            }
+        }
+
+    }
+}
+body.mmenu{
+    background-color: #000000;
+background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 800 800'%3E%3Cg %3E%3Ccircle fill='%23000000' cx='400' cy='400' r='600'/%3E%3Ccircle fill='%23230046' cx='400' cy='400' r='500'/%3E%3Ccircle fill='%232f0052' cx='400' cy='400' r='400'/%3E%3Ccircle fill='%233b075e' cx='400' cy='400' r='300'/%3E%3Ccircle fill='%2348156a' cx='400' cy='400' r='200'/%3E%3Ccircle fill='%23552277' cx='400' cy='400' r='100'/%3E%3C/g%3E%3C/svg%3E");
+background-attachment: fixed;
+background-size: cover;
+}
+img{
+    border-radius: 50%;
+    border: 10px solid var(--color-1);
+    width: 300px;
+}
