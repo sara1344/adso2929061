@@ -285,3 +285,36 @@ body.html{
     
     }
     }
+/*- - - - - - */
+/* C S S*/
+/*- - - - - - */
+body.css{
+    background-color: #000000;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 2000 1500'%3E%3Cdefs%3E%3Cpath fill='none' stroke-width='100' stroke-opacity='0.41' id='a' d='M0.74-509.63l485.39 352.65l-185.4 570.61h-599.97l-185.4-570.61L0.74-509.63 M0.74-510.87l-486.56 353.51l185.85 571.99h601.42L487.3-157.36L0.74-510.87L0.74-510.87z'/%3E%3C/defs%3E%3Cg transform='scale(0.685)' style='transform-origin:center'%3E%3Cg transform='rotate(5.76 0 0)' style='transform-origin:center'%3E%3Cg transform='rotate(-137.6 0 0)' style='transform-origin:center'%3E%3Cg transform='translate(1000 750)'%3E%3Cuse stroke='%23000' href='%23a' transform='rotate(8.6 0 0) scale(1.086)'/%3E%3Cuse stroke='%23000060' href='%23a' transform='rotate(17.2 0 0) scale(1.172)'/%3E%3Cuse stroke='%23000062' href='%23a' transform='rotate(25.8 0 0) scale(1.258)'/%3E%3Cuse stroke='%23000065' href='%23a' transform='rotate(34.4 0 0) scale(1.344)'/%3E%3Cuse stroke='%23000067' href='%23a' transform='rotate(43 0 0) scale(1.43)'/%3E%3Cuse stroke='%2300006a' href='%23a' transform='rotate(51.6 0 0) scale(1.516)'/%3E%3Cuse stroke='%2300006c' href='%23a' transform='rotate(60.2 0 0) scale(1.602)'/%3E%3Cuse stroke='%2300006f' href='%23a' transform='rotate(68.8 0 0) scale(1.688)'/%3E%3Cuse stroke='%23000071' href='%23a' transform='rotate(77.4 0 0) scale(1.774)'/%3E%3Cuse stroke='%23000074' href='%23a' transform='rotate(86 0 0) scale(1.86)'/%3E%3Cuse stroke='%23000076' href='%23a' transform='rotate(94.6 0 0) scale(1.946)'/%3E%3Cuse stroke='%23000079' href='%23a' transform='rotate(103.2 0 0) scale(2.032)'/%3E%3Cuse stroke='%2300027b' href='%23a' transform='rotate(111.8 0 0) scale(2.118)'/%3E%3Cuse stroke='%2300037e' href='%23a' transform='rotate(120.4 0 0) scale(2.204)'/%3E%3Cuse stroke='%23000680' href='%23a' transform='rotate(129 0 0) scale(2.29)'/%3E%3Cuse stroke='%23050883' href='%23a' transform='rotate(137.6 0 0) scale(2.376)'/%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    background-attachment: fixed;
+    background-size: cover;
+    main {
+        header {
+            h1 {
+              color: rgb(248, 245, 245);  
+              font-weight: 500;
+            }
+            h2{
+                color:rgba(252, 250, 250, 0.925);      
+                border-bottom: none;
+                max-width: 80%;
+                font-weight: 500;
+            }
+        }
+
+    menu {
+        a:is(:link, :visit){
+            color: rgba(255, 255, 255, 0.89);
+            span{
+                background-color: rgba(17, 66, 226, 0.541); 
+            }
+        }
+
+    }
+}
+}
