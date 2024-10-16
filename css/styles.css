@@ -107,6 +107,12 @@ body {
         align-items: center;
         gap: 1rem;
         header {
+            img{
+                border-radius: 600px;
+                border: 10px solid var(--color-1);
+                width: 300px;
+                height: 300PX;
+            }   
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -241,12 +247,7 @@ main {
 }
 }
 
-img{
-    border-radius: 600px;
-    border: 10px solid var(--color-1);
-    width: 300px;
-    height: 300PX;
-}   
+  
 /*- - - - - - */
 /* H T M L*/
 /*- - - - - - */
