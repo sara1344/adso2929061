@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>challenge</title>
+    <style>
+      body {
+        background: linear-gradient(45deg, #201063 0%, #6e4719 100% );
+      }
+        body main section h1 {
+            color: #ffffff;
+            text-align: center;
+            font-size: 4rem;
+            margin: 0;
+        }
+
+        nav div.logo {
+        background-image: url(images/logonaruto.png);
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            width: 400px;
+            height: 200px;
+        }
+
+        h1 {
+            font-size: 3rem;
+            text-shadow: 1px 0px 1px #888,
+                0px 1px 1px #777,
+                2px 1px 1px #888,
+                1px 2px 1px #777,
+                3px 2px 1px #888,
+                2px 3px 1px #777,
+                4px 3px 1px #888,
+                3px 4px 1px #777,
+                5px 4px 1px #888,
+                4px 5px 1px #777,
+                6px 5px 1px #888,
+                5px 6px 1px #777,
+                7px 6px 1px #888;
+        }
+
+        main div h3 {
+            color: #000000dc;
+            background-color: #d6611eab;
+            padding: 1rem;
+            text-decoration: none;
+            text-align: center;
+            transition: all 0.5s ease-in;
+            width: 168px;
+            margin: 0 auto;
+        }
+
+        main div:is(:hover) h3 {
+            background-color: rgba(201, 121, 47, 0.26);
+
+            
+        }
+        main div h3:is(:hover) {
+            background-color: rgb(133, 69, 39);
+
+        }
+
+        * {
+            transition: all 0.2s ease-in;
+        }
+
+        body {
+            background-color: #999;
+            font-family: sans-serif;
+        }
+
+        main {
+            background-color: #cccccc3d;
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            width: 850px;
+            margin: 2rem auto;
+            padding: 1rem;
+        }
+
+        main div {
+            background: #0009;
+            height: 250px;
+            width: 200px;
+        }
+
+        main div img {
+            object-fit: cover;
+            width: 200px;
+            height: 200px;
+        }
+
+        nav {
+            background-color:#cccccc3d;
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            width: 850px;
+            margin: 2rem auto;
+            padding: 1rem;
+        }
+
+        article {
+            background-color: #cccccc3d;
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            align-items: center;
+            width: 850px;
+            margin: 2rem auto;
+            padding: 1rem;
+        }
+
+        article div img {
+            object-fit: cover;
+            width: 300px;
+            height: 300px;
+        }
+
+        @media (max-width: 860px) {
+            main {
+                width: 500px;
+            }
+
+            article {
+                width: 500px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            main {
+                width: 400px;
+            }
+
+            article {
+                flex-direction: column;
+                width: 400px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="logo">
+        </div>
+    </nav>
+
+    <main>
+
+        <div class="equipo">
+            <h3>Hiruzen </h3><img src="images/hiruzen.jpeg" alt="">
+        </div>
+        <div class="equipo">
+            <h3> Jiraiya</h3><img src="images/jiraiya .jpeg" alt="">
+        </div>
+        <div class="equipo">
+            <h3> Tsunade</h3><img src="images/tsunade.jpeg" alt="">
+        </div>
+        <div class="equipo">
+            <h3> Orochimaru</h3><img src="images/Orochimaru.jpeg" alt="">
+        </div>
+    </main>
+    <article>
+        <div class="img">
+            <img src="images/1.jpeg" alt="">
+        </div>
+        <div class="txt">
+            <h2>Konohamaru Sarutobi (猿飛 木ノ葉丸)</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut fugit sint, corporis ad accusamus delectus
+                officiis vel placeat ratione esse, error minus rerum. Culpa asperiores consequuntur est tempora minima
+                aperiam.</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut fugit sint, corporis ad accusamus delectus
+                officiis vel placeat ratione esse, error minus rerum. Culpa asperiores consequuntur est tempora minima
+                aperiam.</p>
+        </div>
+    </article>
+    <article>
+        <div class="img">
+            <img src="images/2.jpeg" alt="">
+        </div>
+        <div class="txt">
+            <h2>Jiraiya (自来也)</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut fugit sint, corporis ad accusamus delectus
+                officiis vel placeat ratione esse, error minus rerum. Culpa asperiores consequuntur est tempora minima
+                aperiam.</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut fugit sint, corporis ad accusamus delectus
+                officiis vel placeat ratione esse, error minus rerum. Culpa asperiores consequuntur est tempora minima
+                aperiam.</p>
+        </div>
+    </article>
+    <article>
+        <div class="img">
+            <img src="images/3.jpeg" alt="">
+        </div>
+        <div class="txt">
+            <h2>Tsunade Senju (綱手)</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut fugit sint, corporis ad accusamus delectus
+                officiis vel placeat ratione esse, error minus rerum. Culpa asperiores consequuntur est tempora minima
+                aperiam.</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut fugit sint, corporis ad accusamus delectus
+                officiis vel placeat ratione esse, error minus rerum. Culpa asperiores consequuntur est tempora minima
+                aperiam.</p>
+        </div>
+    </article>
+    <article>
+        <div class="img">
+            <img src="images/4.jpeg" alt="">
+        </div>
+        <div class="txt">
+            <h2> Orochimaru (いんでいいぜ 大蛇丸)</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut fugit sint, corporis ad accusamus delectus
+                officiis vel placeat ratione esse, error minus rerum. Culpa asperiores consequuntur est tempora minima
+                aperiam.</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut fugit sint, corporis ad accusamus delectus
+                officiis vel placeat ratione esse, error minus rerum. Culpa asperiores consequuntur est tempora minima
+                aperiam.</p>
+        </div>
+    </article>
+</body>
+
+</html>
