@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        main {
+            display: grid;
+            place-items: center;
+            min-height: 100dvh;
+            background: linear-gradient(to left, rgb(110, 88, 110), plum,rgb(110, 88, 110));
+
+        }
+
+        main div.primero {
+            display: grid;
+            place-items: center;
+            justify-content: center;
+            /*
+  grid-template-columns: repeat(3, 140px);
+  grid-template-rows: repeat(3, 140px);
+  */
+            grid-template-areas:
+                "img001 img002 img003"
+                "img004 img002 img005"
+                "img006 img006 img007";
+            margin: 2rem auto;
+            width: calc(140px * 3);
+            gap: 8px;
+        }
+
+        main div.primero img {
+            border-radius: 4px;
+            outline: solid #000;
+            object-fit: cover;
+            height: 140px;
+            width: 140px;
+        }
+
+        main div.primero img.img001 {
+            grid-area: img001;
+        }
+
+        main div.primero img.img002 {
+            grid-area: img002;
+            height: calc(140px * 2 + 8px);
+        }
+
+        main div.primero img.img003 {
+            grid-area: img003;
+        }
+
+        main div.primero img.img004 {
+            grid-area: img004;
+        }
+
+        main div.primero img.img005 {
+            grid-area: img005;
+        }
+
+        main div.primero img.img006 {
+            grid-area: img006;
+            width: calc(140px * 2 + 8px);
+        }
+
+        main div.primero img.img007 {
+            grid-area: img007;
+        }
+
+        /**/
+        main div.segundo {
+            justify-content: center;
+            display: grid;
+            place-items: center;
+            /*
+  grid-template-columns: repeat(3, 140px);
+  grid-template-rows: repeat(3, 140px);
+  */
+            grid-template-areas:
+                "img001 img001 img002 img003"
+                "img001 img001 img004 img004"
+                "img005 img006 img004 img004";
+            margin: 2rem auto;
+            width: calc(140px * 3);
+            gap: 8px;
+        }
+        main div.segundo img {
+            border-radius: 4px;
+            outline: solid #000;
+            object-fit: cover;
+            height: 140px;
+            width: 140px;
+        }
+
+        main div.segundo img.img001 {
+            grid-area: img001;
+            height: calc(140px * 2 + 8px);
+            width: calc(140px * 2 + 8px);
+        }
+
+        main div.segundo img.img002 {
+            grid-area: img002;
+            
+        }
+
+        main div.segundo img.img003 {
+            grid-area: img003;
+        }
+
+        main div.segundo img.img004 {
+            grid-area: img004;
+            height: calc(140px * 2 + 8px);
+            width: calc(140px * 2 + 8px);
+        }
+
+        main div.segundo img.img005 {
+            grid-area: img005;
+        }
+
+        main div.segundo img.img006 {
+            grid-area: img006;
+            
+        }
+
+        
+    </style>
+</head>
+
+<body>
+    <main>
+        <div class="primero">
+        <img src="images/crep.jpeg"
+            class="img001">
+        <img src="images/crpFma.jpeg"
+            class="img002">
+        <img src="images/bella.jpeg"
+            class="img003">
+        <img src="images/lob.jpeg"
+            class="img004">
+        <img src="images/dos.jpeg"
+            class="img05">
+        <img src="images/mahi.jpeg"
+            class="img006">
+        <img src="images/lobRe.jpeg"
+            class="img007">
+        </div>
+        <div class="segundo">
+            <img src="images/harry.jpeg"
+            class="img001">
+        <img src="images/herm.jpeg"
+            class="img002">
+        <img src="images/ron.jpeg"
+            class="img003">
+        <img src="images/doby.jpeg"
+            class="img004">
+        <img src="images/lostres.jpeg"
+            class="img05">
+        <img src="images/familia.jpeg"
+            class="img006">
+        
+        </div>
+    </main>
+</body>
+
+</html>
