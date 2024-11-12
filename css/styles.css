@@ -400,7 +400,7 @@ body.pug {
         }
         section {
             p {
-                color: #e0c09b;
+                color: rgb(248, 245, 245);
             }
         }
         menu {
