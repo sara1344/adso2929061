@@ -398,11 +398,14 @@ body.pug {
                 font-weight: 500;
             }
         }
+        
+
         section {
             p {
                 color: rgb(248, 245, 245);
             }
         }
+
         menu {
             a:is(:link, :visit) {
                 color: #dfc0b7;

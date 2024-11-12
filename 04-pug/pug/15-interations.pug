@@ -15,3 +15,6 @@ html(lang="en")
                 h1 15 - Iteration
                 h2 Describes how to repeat code a specified number of times using iteration.
             section
+                ul 
+                    each val, index in ['red', 'green', 'blue', 'yellow', 'fuchsia', 'aqua']
+                        li(style='list-style: none; padding: 4px; background-color: ' +val)= index + ': ' + val 

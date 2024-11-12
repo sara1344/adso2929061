@@ -5,6 +5,10 @@ html(lang="en")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
         title 16 - Mixin
         link(rel="stylesheet", href="../../css/styles.css")
+        style.
+            ul{
+                padding-left: 1rem;
+            }
     body.pug
         nav
             a(href="../index.html")
@@ -15,3 +19,12 @@ html(lang="en")
                 h1 16 - Mixin
                 h2 Explains how to create and use mixins, which function similarly to reusable components.
             section
+                mixin dragon(name)
+                    li.dragon=name 
+                h3 list of dragons (GOT):
+                ul
+                    +dragon('Rhaegal')
+                    +dragon('Viserion')
+                    +dragon('Drogon')
+                    +dragon('Dreamfyre')
+                    +dragon('Tessarion')

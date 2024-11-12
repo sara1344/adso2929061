@@ -5,6 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>13 - Include text</title>
     <link rel="stylesheet" href="../../css/styles.css">
+    <style>h4.msg {
+    text-align: center;
+    font-size: 2rem;
+    color: peru;
+    text-decoration: underline;
+}
+    </style>
   </head>
   <body class="pug">
     <nav><a href="../index.html">
@@ -16,7 +23,13 @@
         <h1>13 - Include text</h1>
         <h2>Explains how to include external CSS and JavaScript files.</h2>
       </header>
-      <section></section>
+      <section>
+        <h4 class="msg">Hellow</h4>
+      </section>
+      <script>
+         let msg = document.querySelector('.msg')
+msg.textContent = "Welcome: Jhon F. Rambo"
+      </script>
     </main>
   </body>
 </html>
