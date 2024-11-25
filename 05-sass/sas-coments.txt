@@ -1,0 +1,9 @@
+sass example.sass other.css --no-source-map
+sass example.sass other.css  --no-source-map --style=compressed
+                                                     expanded
+                                                     
+
+>sass example.sass:muestra.css
+
+sass --watch sass:css --no-source-map
+sass --watch scss:css --no-source-map
