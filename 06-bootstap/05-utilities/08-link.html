@@ -28,20 +28,23 @@
 
                 </header>
                 <section class="content">
-                        <h3 class="my-4">Text Selection:</h3>
-                        <p class="user-select-all">This paragraph will be entirely selected when clicked by the user.
-                        </p>
-                        <p class="user-select-auto">This paragraph has default select behavior.</p>
-                        <p class="user-select-none">This paragraph will not be selectable when clicked by the user.</p>
-                        <h3 class="my-4">Pointer events:</h3>
-                        <p><a href="#" class="pe-none" tabindex="-1" aria-disabled="true">This link</a> can not be
-                                clicked.</p>
-                        <p><a href="#" class="pe-auto">This link</a> can be clicked (this is default behavior).</p>
-                        <p class="pe-none"><a href="#" tabindex="-1" aria-disabled="true">This link</a> can not be
-                                clicked because the <code>pointer-events</code> property is inherited from its parent.
-                                However, <a href="#" class="pe-auto">this link</a> has a <code>pe-auto</code> class and
-                                can be clicked.</p>
-                </section>
+                        <h3 class="my-4">Link Opacity:</h3>
+                        <p><a class="link-opacity-10" href="#">Link opacity 10</a></p>
+                        <p><a class="link-opacity-25" href="#">Link opacity 25</a></p>
+                        <p><a class="link-opacity-50" href="#">Link opacity 50</a></p>
+                        <p><a class="link-opacity-75" href="#">Link opacity 75</a></p>
+                        <p><a class="link-opacity-100" href="#">Link opacity 100</a></p>
+                        <h3 class="my-4">Colored Links:</h3>
+                        <p><a href="#" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Primary link</a></p>
+                        <p><a href="#" class="link-secondary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Secondary link</a></p>
+                        <p><a href="#" class="link-success link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Success link</a></p>
+                        <p><a href="#" class="link-danger link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Danger link</a></p>
+                        <p><a href="#" class="link-warning link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Warning link</a></p>
+                        <p><a href="#" class="link-info link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Info link</a></p>
+                        <p><a href="#" class="link-light link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Light link</a></p>
+                        <p><a href="#" class="link-dark link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Dark link</a></p>
+                        <p><a href="#" class="link-body-emphasis link-offset-2 link-underline-opacity-25 link-underline-opacity-75-hover">Emphasis link</a></p>
+                    </section>
         </main>
         <script src="../../css/js/bootstrap.min.js"></script>
         <script src="../../css/js/bootstrap.bundle.min.js"></script>
