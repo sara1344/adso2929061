@@ -7,9 +7,22 @@
     <title>05 - Flex</title>
     <link rel="stylesheet" href="../../css/styles.css">
     <link rel="stylesheet" href="../../css/css/bootstrap.css">
+    <style>
+        section.content {
+            div.d-flex {
+                border: 2px solid #fff4;
+                background-color: #fff3;
+
+                div {
+                    border: 1px solid #fff4;
+                    background-color: #fff3;
+                }
+            }
+        }
+    </style>
 </head>
 
-<body class="bootstap">
+<body class="bootstrap">
     <nav>
         <a href="../index.html">
             <svg xmlns="http://www.w3.org/2000/svg"
@@ -27,19 +40,6 @@
                 necessary.</h2>
 
         </header>
-        <style>
-            section.content {
-                div.d-flex {
-                    border: 2px solid #0004;
-                    background-color: #0003;
-
-                    div {
-                        border: 1px solid #0004;
-                        background-color: #0003;
-                    }
-                }
-            }
-        </style>
         <section class="content">
             <h3 class="my-4">Direction:</h3>
             <div class="d-flex flex-row mb-3">
@@ -161,6 +161,8 @@
             </div>
         </section>
     </main>
+    <script src="../../css/js/bootstrap.min.js"></script>
+    <script src="../../css/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
