@@ -63,6 +63,7 @@ div.row.about {
         padding-top: 90px;
         background-color: #EEE0E4;
         height: 680px;
+        padding-block: 20px;
 
         h2,
         h3,
@@ -78,15 +79,16 @@ div.row.about {
             background-color: #3B1724;
             color: #F5DDE5;
         }
+
         div.progress {
             background-color: #ebc6d2;
             width: 100%;
         }
-    
+
         div.progress-bar {
             background-color: #BA6A85;
         }
-    
+
     }
 
 
@@ -103,7 +105,8 @@ div.row.about {
 div.row.services {
     background-color: #805663;
     padding-top: 50px;
-    padding: 10px;
+    padding: 30px;
+
 
     div.tittle.row {
         width: 100%;
@@ -123,8 +126,10 @@ div.row.services {
     }
 
     div.card {
-        margin-top: 30px;
-        margin-left: 250px;
+        margin: auto;
+        margin-top: 20px;
+        width: 100%;
+        height: 100%;
 
         img {
             margin-top: 25px;
@@ -138,37 +143,98 @@ div.row.services {
 
 div.row.portfolio {
     background-color: #BDA5AC;
-    padding-top: 50px;
-    padding: 10px;
+    padding: 20px;
 
-    div.tittle.row {
+
+
+    h2,
+    h3 {
+        text-align: center;
+        color: #521222;
         width: 100%;
         align-items: center;
         justify-content: center;
-        align-items: center;
+
+    }
+
+
+    div.card {
+        margin: auto;
+        margin-top: 20px;
+        width: 100%;
+        height: 100%;
+
+        img {
+            margin-top: 2px;
+            padding-block: 20px;
+        }
+    }
+}
+
+/* Footer */
+
+
+div.row.footer {
+    background-color: #4E2835;
+
+    div.dados {
+        margin-top: 50px;
+        width: 100%;
+        justify-content: center;
+        color: #F5DDE5;
 
         h2 {
             text-align: center;
-            color: #421222;
-        }
-
-        h3 {
-            text-align: center;
-            color: #5D2539;
+            margin-top: 20px;
+            margin-left: 20px;
+            color: #F5DDE5;
         }
     }
 
-    div.card {
+    div.redes {
+        margin-top: 50px;
+        width: 100%;
+        justify-content: center;
+        color: #F5DDE5;
+
+        div.img {
+            background-color: #8d6170;
+            border-radius: 50%;
+            width: 90px;
+            height: 90px;
+            justify-content: center;
+            align-items: center;
+
+            img {
+                width: 40px;
+                height: 40px;
+
+            }
+        }
+
+    }
+
+    div.correo {
         margin-top: 30px;
-        margin-left: 250px;
+        width: 100%;
+        justify-content: center;
+        padding-block: 20px;
 
-        img {
-            margin-top: 25px;
-            width: 40px;
-            height: 40px;
+        a {
+            color: #ecc2d0;
+        }
+
+        nav.navbar.bg-custom {
+            background-color: #4E2835;
+
+            a.navbar-brand {
+                color: #fde9f0;
+            }
+
+            a.nav-link {
+                color: #EFCED9;
+            }
         }
     }
-    div.carousel{
-        width: 100%;height: 100%;
-    }
+
 }
