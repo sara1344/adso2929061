@@ -13,15 +13,21 @@
 </head>
 
 <body class="bg-[#1e1e1e] font-[Poppins]">
-    <main class="min-h-[100dvh]
+    <main class="flex-col
+                min-h-[100dvh]
                  flex 
                  justify-center 
                  items-center">
         <!-- Screen 01 - Welcome -->
-        <section class="welcome 
+        <section id="welcome" class="welcome 
                         w-[386px] 
                         h-[760px]
+                        transition-all
+                        ease-in
                         my-4
+                        translate-x-[-300%]
+                        target:translate-x-[0px]
+                        duration-500
                         rounded-[20px]
                         overflow-hidden
                         bg-[url(images/viñedoo.svg)]
@@ -68,7 +74,7 @@
                             mt-[42PX]
                             mx-auto
                             flex">
-                    <a href="" class="w-[170px]
+                    <a href="#signin" class="w-[170px]
                                     h-[55px]
                                     rounded-s-[80px]
                                     flex
@@ -76,7 +82,7 @@
                                     text-white
                                     bg-[#B21111]
                                     items-center">Sign In</a>
-                    <a href="" class="w-[170px]
+                    <a href="#signup" class="w-[170px]
                                     h-[55px]
                                     rounded-e-[80px]
                                     flex
@@ -89,9 +95,9 @@
             </div>
         </section>
         <!-- Screen 02 - Signin -->
-        <section class="signin"></section>
+        <section id="signin" class="signin"></section>
         <!-- Screen 03 - Signup -->
-        <section class="signup"></section>
+        <section id="signup" class="signup"></section>
     </main>
     <script src="js/tailwind.js"></script>
 </body>
