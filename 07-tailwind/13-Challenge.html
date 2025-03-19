@@ -6,13 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>13 - Challenge</title>
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
-    </style>
+    
 
 </head>
 
-<body class="bg-[#1e1e1e] font-[Poppins]">
+<body class="bg-[#1e1e1e] ">
     <main class="flex-col
                 min-h-[100dvh]
                  flex 
@@ -95,7 +93,77 @@
             </div>
         </section>
         <!-- Screen 02 - Signin -->
-        <section id="signin" class="signin"></section>
+        <section id="signin" class="welcome 
+                                    w-[386px] 
+                                    h-[760px]
+                                    transition-all
+                                    ease-in
+                                    my-4
+                                    translate-x-[-300%]
+                                    target:translate-x-[0px]
+                                    duration-500
+                                    rounded-[20px]
+                                    overflow-hidden
+                                    bg-[url(images/circulos.svg)]
+                                    bg-[#ffffff]
+                                    relative
+                                    bg-top
+                                    bg-no-repeat">
+            <div class="absolute
+                                    rounded-t-[30px]
+                                    bottom-0
+                                    w-full
+                                    h-[500px]
+                                    bg-white">
+
+                <figure class="logo
+                                            h-[121px]
+                                            w-[205px]
+                                            mx-auto
+                                            mt-[-60px]
+                                            bg-[url(images/Group_cop.svg)]
+                                            bg-no-repeat
+                                            bg-center">
+                    
+                </figure>
+                <figure class="info 
+                                            h-[121px]
+                                            w-[275px]
+                                            mx-auto
+                                            mt-[-60px]
+                                            bg-[url(images/person.svg)]
+                                            bg-no-repeat
+                                            bg-center">
+                    
+                </figure>
+                <figure class="password 
+                                            h-[121px]
+                                            w-[275px]
+                                            mx-auto
+                                            mt-[-30px]
+                                            bg-[url(images/password.svg)]
+                                            bg-no-repeat
+                                            bg-center">
+                    
+                </figure>
+                <div class="actions
+                                        w-[320px]
+                                        
+                                        mt-[42PX]
+                                        mx-auto
+                                        flex">
+                    <a href="#signin" class="w-[340px]
+                                                h-[55px]
+                                                rounded-[80px]
+                                                flex
+                                                justify-center
+                                                text-white
+                                                bg-[#B21111]
+                                                items-center">Sign In</a>
+
+                </div>
+            </div>
+        </section>
         <!-- Screen 03 - Signup -->
         <section id="signup" class="signup"></section>
     </main>
