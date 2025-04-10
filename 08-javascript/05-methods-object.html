@@ -109,20 +109,21 @@
         const btnAttack = document.querySelector('.btn-attack')
         const btnFeed = document.querySelector('.btn-feed')
 
-
+        //object
         const pokemon = {
+            //Attributes
             name: 'Snorlax',
             type: 'Normal',
             hp: 100,
             image: 'images/snorlax-sprite.png',
             status: 'alive',
+            //methods
             render: function () {
                 pkName.inerHTML = `${this.name} <small>[${this.type}]</small>`
                 pkImage.style.backgroundImage = `url(${this.image})`
                 this.updateHp('animate__rubberBand')
                 this.updateStatus()
             },
-
             updateHp: function (fx) {
                 pkHp.textContent = `HP: ${this.hp}`
                 //animate__tada : attack
@@ -133,46 +134,46 @@
                 if (this.hp < 200) {
                     this.hp += 25
                     this.status = 'feed'
-                    pkImage.classList.remove('alive','attack','dead')
+                    pkImage.classList.remove('alive', 'attack', 'dead')
                     this.updateHp('animate__rubberBand')
                     this.updateStatus()
                 }
             },
 
             attack: function () {
-                if(this.hp<=25){
-                    this.hp=0
-                    this.status='dead'
-                    pkImage.classList.remove('alive','feed','attack')
+                if (this.hp <= 25) {
+                    this.hp = 0
+                    this.status = 'dead'
+                    pkImage.classList.remove('alive', 'feed', 'attack')
                     this.updateHp('animate__tada')
                     updateStatus()
                 }
-                else{
+                else {
                     this.hp -= 25
                     this.status = 'attack'
-                    pkImage.classList.remove('alive','feed','dead')
+                    pkImage.classList.remove('alive', 'feed', 'dead')
                     this.updateHp('animate__tada')
                     this.updateStatus()
-                    
+
                 }
             },
-            updateStatus: function(){
-                
-                setTimeout(() =>{
-                    if (this.status != 'dead'  ){
-                         this.status='alive'
-                        pkImage.classList.remove('animate__rubberBand','animate__tada','feed','attack','dead')
-                        } else {
-                            pkImage.classList.remove('animate__swing')
-                        }
-                    
-                },1200)
+            updateStatus: function () {
+
+                setTimeout(() => {
+                    if (this.status != 'dead') {
+                        this.status = 'alive'
+                        pkImage.classList.remove('animate__rubberBand', 'animate__tada', 'feed', 'attack', 'dead')
+                    } else {
+                        pkImage.classList.remove('animate__swing')
+                    }
+
+                }, 1200)
 
             }
 
         }
         pokemon.render()
-
+        //events
         btnFeed.addEventListener('click', () => {
             pokemon.feed()
         })
