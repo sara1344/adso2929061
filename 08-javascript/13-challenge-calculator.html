@@ -8,34 +8,38 @@
     <link rel="stylesheet" href="../css/styles.css">
 
     <style>
-        div.calculator{
-            background: linear-gradient(to bottom, rgb(184, 180, 180),rgb(146, 114, 114));
+        div.calculator {
+            background: linear-gradient(to bottom, rgb(184, 180, 180), rgb(146, 114, 114));
             border-radius: 15px;
-            height: 801px;
+            height: 600px;
             margin: 0 auto;
             width: 380px;
             transition: all 0.5s ease-in;
-            header{
+
+            header {
                 position: relative;
-               
+
                 margin: 0 auto;
                 width: 360px;
                 height: 160px;
-                button.btn-mode{
+
+                button.btn-mode {
                     background: url(images/calculator/btn-mod.svg) no-repeat center;
                     cursor: pointer;
                     position: absolute;
-                    top: 8px;
+                    top: 20px;
                     border: none;
                     border-radius: 15px;
                     width: 146px;
                     height: 30px;
                     transition: transform 0.2s ease-in;
-                    &:hover{
+
+                    &:hover {
                         transform: scale(1.1);
                     }
 
                 }
+
                 input.operation {
                     border: none;
                     font-size: 18px;
@@ -48,6 +52,7 @@
                     text-align: right;
                     font-weight: 500;
                 }
+
                 h4.result {
                     position: absolute;
                     color: #660000;
@@ -55,35 +60,42 @@
                     font-family: 'Poppins-600';
                     font-weight: 600px;
                     right: 0;
-                    top: 100px;
+                    top: 100px; 
                 }
             }
+
             footer {
                 display: grid;
                 grid-template-columns: repeat(4, 80px);
                 gap: 5px;
                 width: 336px;
                 margin: 0 auto;
+
                 button {
-                    
+
                     cursor: pointer;
-border: none;
+                    border: none;
                     height: 80px;
                     border-radius: 16px;
                     transition: all 0.2s ease-in;
+
                     &:hover {
                         opacity: 1;
                         transform: scale(1.1);
                     }
+
                     &.btn-clear {
                         background: url(images/calculator/btn-clear.png) no-repeat center;
                     }
+
                     &.btn-del {
                         background: url(images/calculator/btn-del.png) no-repeat center;
                     }
+
                     &.btn-pow {
                         background: url(images/calculator/btn-pow.png) no-repeat center;
                     }
+
                     &.btn-mod {
                         background: url(images/calculator/btn-mod.png) no-repeat center;
                     }
@@ -91,92 +103,116 @@ border: none;
                     &.btn-1 {
                         background: url(images/calculator/btn-1.png) no-repeat center;
                     }
+
                     &.btn-2 {
                         background: url(images/calculator/btn-2.png) no-repeat center;
                     }
+
                     &.btn-3 {
                         background: url(images/calculator/btn-3.png) no-repeat center;
                     }
+
                     &.btn-mult {
                         background: url(images/calculator/btn-mult.png) no-repeat center;
                     }
+
                     &.btn-4 {
                         background: url(images/calculator/btn-4.png) no-repeat center;
                     }
+
                     &.btn-5 {
                         background: url(images/calculator/btn-5.png) no-repeat center;
                     }
+
                     &.btn-6 {
                         background: url(images/calculator/btn-6.png) no-repeat center;
                     }
+
                     &.btn-subs {
                         background: url(images/calculator/btn-subs.png) no-repeat center;
                     }
+
                     &.btn-7 {
                         background: url(images/calculator/btn-7.png) no-repeat center;
                     }
+
                     &.btn-8 {
                         background: url(images/calculator/btn-8.png) no-repeat center;
                     }
+
                     &.btn-9 {
                         background: url(images/calculator/btn-9.png) no-repeat center;
                     }
+
                     &.btn-plus {
                         background: url(images/calculator/btn-plus.png) no-repeat center;
                     }
+
                     &.btn-div {
                         background: url(images/calculator/btn-div.png) no-repeat center;
                     }
+
                     &.btn-0 {
                         background: url(images/calculator/btn-0.png) no-repeat center;
                     }
+
                     &.btn-dot {
                         background: url(images/calculator/btn-dot.png) no-repeat center;
                     }
+
                     &.btn-equal {
                         background: url(images/calculator/btn-equal.png) no-repeat center;
                     }
                 }
             }
+
             /**dark mode**/
             &.dark {
                 background-color: #333;
             }
         }
-         /**dark mode**/ /**dark mode**/ /**dark mode**/ /**dark mode**/
-         div.calculator.dark{
-            background: linear-gradient(to bottom, rgb(184, 180, 180),rgb(146, 114, 114));
+
+        /**dark mode**/
+        /**dark mode**/
+        /**dark mode**/
+        /**dark mode**/
+        div.calculator.dark {
+            background: linear-gradient(to bottom, rgb(134, 45, 45), rgb(0, 0, 0));
             border-radius: 15px;
-            height: 801px;
+            height: 600px;
             margin: 0 auto;
             width: 380px;
             transition: all 0.5s ease-in;
-            header{
+
+            header {
                 position: relative;
-               
+
                 margin: 0 auto;
                 width: 360px;
                 height: 160px;
-                button.btn-mode{
+
+                button.btn-mode {
                     background: url(images/calculator/btn-mod-dark.svg) no-repeat center;
                     cursor: pointer;
                     position: absolute;
-                    top: 8px;
+                    top: 20px;
                     border: none;
                     border-radius: 15px;
                     width: 146px;
                     height: 30px;
                     transition: transform 0.2s ease-in;
-                    &:hover{
+
+                    &:hover {
                         transform: scale(1.1);
                     }
 
                 }
+
                 input.operation {
                     border: none;
                     font-size: 18px;
                     background-color: transparent;
-                    color: #872F2F;
+                    color: #D9D4D4;
                     outline: none;
                     position: absolute;
                     top: 80px;
@@ -184,9 +220,10 @@ border: none;
                     text-align: right;
                     font-weight: 500;
                 }
+
                 h4.result {
                     position: absolute;
-                    color: #660000;
+                    color: #E5E1E1;
                     font-size: 40px;
                     font-family: 'Poppins-600';
                     font-weight: 600px;
@@ -194,32 +231,39 @@ border: none;
                     top: 100px;
                 }
             }
+
             footer {
                 display: grid;
                 grid-template-columns: repeat(4, 80px);
                 gap: 5px;
                 width: 336px;
                 margin: 0 auto;
+
                 button {
-                    
+
                     cursor: pointer;
-border: none;
+                    border: none;
                     height: 80px;
                     border-radius: 16px;
                     transition: all 0.2s ease-in;
+
                     &:hover {
                         opacity: 1;
                         transform: scale(1.1);
                     }
+
                     &.btn-clear {
                         background: url(images/calculator/btn-clear-dark.png) no-repeat center;
                     }
+
                     &.btn-del {
                         background: url(images/calculator/btn-del-dark.png) no-repeat center;
                     }
+
                     &.btn-pow {
                         background: url(images/calculator/btn-pow-dark.png) no-repeat center;
                     }
+
                     &.btn-mod {
                         background: url(images/calculator/btn-mod-dark.png) no-repeat center;
                     }
@@ -227,59 +271,74 @@ border: none;
                     &.btn-1 {
                         background: url(images/calculator/btn-1-dark.png) no-repeat center;
                     }
+
                     &.btn-2 {
                         background: url(images/calculator/btn-2-dark.png) no-repeat center;
                     }
+
                     &.btn-3 {
                         background: url(images/calculator/btn-3-dark.png) no-repeat center;
                     }
+
                     &.btn-mult {
                         background: url(images/calculator/btn-mult-dark.png) no-repeat center;
                     }
+
                     &.btn-4 {
                         background: url(images/calculator/btn-4-dark.png) no-repeat center;
                     }
+
                     &.btn-5 {
                         background: url(images/calculator/btn-5-dark.png) no-repeat center;
                     }
+
                     &.btn-6 {
                         background: url(images/calculator/btn-6-dark.png) no-repeat center;
                     }
+
                     &.btn-subs {
                         background: url(images/calculator/btn-subs-dark.png) no-repeat center;
                     }
+
                     &.btn-7 {
                         background: url(images/calculator/btn-7-dark.png) no-repeat center;
                     }
+
                     &.btn-8 {
                         background: url(images/calculator/btn-8-dark.png) no-repeat center;
                     }
+
                     &.btn-9 {
                         background: url(images/calculator/btn-9-dark.png) no-repeat center;
                     }
+
                     &.btn-plus {
                         background: url(images/calculator/btn-plus-dark.png) no-repeat center;
                     }
+
                     &.btn-div {
                         background: url(images/calculator/btn-div-dark.png) no-repeat center;
                     }
+
                     &.btn-0 {
                         background: url(images/calculator/btn-0-dark.png) no-repeat center;
                     }
+
                     &.btn-dot {
                         background: url(images/calculator/btn-dot-dark.png) no-repeat center;
                     }
+
                     &.btn-equal {
                         background: url(images/calculator/btn-equal-dark.png) no-repeat center;
                     }
                 }
             }
+
             /**dark mode**/
             &.dark {
                 background-color: #333;
             }
         }
-        
     </style>
 
 </head>
@@ -308,10 +367,10 @@ border: none;
                     <h4 class="result"></h4>
                 </header>
                 <footer>
-                    <button class="btn-clear"></button>
-                    <button class="btn-del"></button>
                     <button class="btn-pow" data-opr="**"></button>
                     <button class="btn-mod" data-opr="%"></button>
+                    <button class="btn-clear"></button>
+                    <button class="btn-del"></button>
                     <button class="btn-1" data-num="1"></button>
                     <button class="btn-2" data-num="2"></button>
                     <button class="btn-3" data-num="3"></button>
@@ -344,10 +403,45 @@ border: none;
         const btnEqual = document.querySelector('.btn-equal')
         const btnMode = document.querySelector('.btn-mode')
 
-        //Events
-       
+        const darkMode = window.matchMedia('(prefers-color-scheme: dark)')
+        darkMode.addListener(darkModeChange)
 
-        btnDel.addEventListener('click',(e) => {
+        function darkModeChange(dm) {
+            if (dm.matches) {
+                calculator.classList.add('dark')
+            } else {
+                calculator.classList.remove('dark')
+            }
+        }
+        darkModeChange(darkMode)
+        // Keyboard events
+        document.addEventListener('keydown', (e) => {
+            const key = e.key
+            const operators = ['+', '-', '*', '/', '%', '.']
+            const lastChar = operation.value.slice(-1)
+
+            if (!isNaN(key)) {
+                // Si la tecla es un número (0-9)
+                operation.value += key
+            } else if (operators.includes(key)) {
+                // Si la tecla es un operador, asegúrate que el último carácter no lo sea
+                if (!operators.includes(lastChar) && operation.value !== '') {
+                    operation.value += key
+                }
+            } else if (key === 'Backspace') {
+                operation.value = operation.value.slice(0, -1)
+            } else if (key === 'Enter') {
+                result.textContent = eval(operation.value)
+            } else if (key === 'Escape') {
+                operation.value = ''
+                result.textContent = ''
+            }
+        })
+
+        //Events
+
+
+        btnDel.addEventListener('click', (e) => {
             operation.value = operation.value.slice(0, -1)
         })
 
@@ -367,12 +461,16 @@ border: none;
             operation.value = ''
         })
         btnEqual.addEventListener('click', (e) => {
-            result.textContent = `=${eval(operation.value)}`
+            result.textContent = `= ${eval(operation.value)}`
         })
-         // esto es para el modo claro y oscuro
-         btnMode.addEventListener('click', (e) => {
+        // esto es para el modo claro y oscuro
+        btnMode.addEventListener('click', (e) => {
             calculator.classList.toggle('dark')
         })
+
+
+
     </script>
 </body>
+
 </html>
