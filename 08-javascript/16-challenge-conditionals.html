@@ -4,44 +4,262 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>16 - challenge conditionals</title>
-    <link rel="stylesheet" href="../css/styles.css">
- <style>
+    <title>16 - Challenge</title>
+    <link rel="stylesheet" href="../css/Styles.css">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <style>
         div.weather {
             div.search {
                 display: flex;
                 justify-content: center;
                 align-items: center;
+
                 input.query {
                     border: none;
                     border-radius: 5rem;
                     outline: none;
-                    padding: 0.6rem 0.8rem;
+                    padding: 0.4rem 0.6rem;
                 }
+
                 button.btn-search {
                     border: none;
-                    cursor: point;
                     background: transparent;
-                    width: 48px;
+                    width: 40px;
+                    cursor: pointer;
                     transition: transform 0.2s ease-in;
-                    svg {
-                        color: #fff;
-                    }
+                    color: aliceblue;
+
                     &:hover {
                         transform: scale(1.1);
                     }
                 }
             }
         }
-        div.fondo {
-            h3{
-                border-bottom: none;
-            }
-        }
-        li {
 
-            display: flex;
-         
+        div.fondo {
+            position: relative;
+            width: 360px;
+            height: 380px;
+            background: url(images/conditionals/fondo-day.png);
+            left: 25%;
+
+            h4.pais {
+                position: absolute;
+                top: 2px;
+                left: 50%;
+                transform: translateX(-50%);
+                font-size: 1.4rem;
+            }
+
+            h4.ciudad {
+                position: absolute;
+                top: 25px;
+                left: 50%;
+                transform: translateX(-50%);
+                font-size: 1.8rem;
+                color: transparent;
+                /* Esto hace que el relleno del texto sea transparente */
+                -webkit-text-stroke: 1px #447a9f;
+                /* Para navegadores basados en Webkit (Chrome, Safari) */
+                text-stroke: 1px #000915;
+                /* Propiedad estándar */
+            }
+
+            h4.fecha {
+                position: absolute;
+                top: 60px;
+                left: 50%;
+                transform: translateX(-50%);
+                font-size: 1rem;
+                font-weight: 200;
+                color: #ffffff;
+            }
+
+            div.temp {
+                width: 200px;
+                height: 200px;
+                align-items: center;
+                text-align: center;
+                position: relative;
+                top: 90px;
+
+
+                h4.tempText {
+                    position: absolute;
+                    top: 50px;
+                    left: 90%;
+                    transform: translateX(-50%);
+                    font-size: 3rem;
+                    text-align: center;
+                    text-shadow: 0 0 5px #000915;
+                }
+
+                img.imgIco {
+                    position: absolute;
+                    width: 80%;
+                    height: 80%;
+                    align-items: center;
+
+                }
+            }
+
+            button.condicion {
+                left: 50%;
+                transform: translateX(-50%);
+                position: absolute;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 5rem;
+                outline: none;
+                padding: 0.8rem 1rem;
+                border: none;
+                background-color: #ACD2ED;
+                color: #164257;
+                top: 270px;
+
+            }
+
+            button.humedad {
+                left: 23%;
+                transform: translateX(-50%);
+                position: absolute;
+                justify-content: left;
+                border-radius: 5rem;
+                outline: none;
+                padding: 0.6rem 1rem;
+                border: none;
+                background-color: #ACD2ED;
+                color: #164257;
+                top: 330px;
+            }
+
+            button.nube {
+                left: 75%;
+                transform: translateX(-50%);
+                position: absolute;
+                justify-content: right;
+                border-radius: 5rem;
+                outline: none;
+                padding: 0.6rem 1rem;
+                border: none;
+                background-color: #ACD2ED;
+                color: #164257;
+                top: 330px;
+            }
+
+            &.night {
+                position: relative;
+                width: 360px;
+                height: 380px;
+                background: url(images/conditionals/fondo-dark.png);
+
+                h4.pais {
+                    position: absolute;
+                    top: 2px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    font-size: 1.4rem;
+                    color: #B5B5B5;
+                }
+
+                h4.ciudad {
+                    position: absolute;
+                    top: 25px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    font-size: 1.8rem;
+                    color: transparent;
+                    /* Esto hace que el relleno del texto sea transparente */
+                    -webkit-text-stroke: 1px #CCCCCC;
+                    /* Para navegadores basados en Webkit (Chrome, Safari) */
+
+                }
+
+                h4.fecha {
+                    position: absolute;
+                    top: 60px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    font-size: 1rem;
+                    font-weight: 200;
+                    color: #CCCCCC;
+                }
+
+                div.temp {
+                    width: 200px;
+                    height: 200px;
+                    align-items: center;
+                    text-align: center;
+                    position: relative;
+                    top: 90px;
+
+
+                    h4.tempText {
+                        position: absolute;
+                        top: 50px;
+                        left: 93%;
+                        transform: translateX(-50%);
+                        font-size: 3rem;
+                        text-align: center;
+                        text-shadow: 0 0 8px #242b52;
+                    }
+
+                    img.imgIco {
+                        position: absolute;
+                        width: 80%;
+                        height: 80%;
+                        align-items: center;
+
+                    }
+                }
+
+                button.condicion {
+                    left: 50%;
+                    transform: translateX(-50%);
+                    position: absolute;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    border-radius: 5rem;
+                    outline: none;
+                    padding: 0.8rem 1rem;
+                    border: none;
+                    background-color: #24176D;
+                    color: #C4C4C4;
+                    top: 270px;
+
+                }
+
+                button.humedad {
+                    left: 23%;
+                    transform: translateX(-50%);
+                    position: absolute;
+                    justify-content: left;
+                    border-radius: 5rem;
+                    outline: none;
+                    padding: 0.6rem 1rem;
+                    border: none;
+                    background-color: #24176D;
+                    color: #C4C4C4;
+                    top: 330px;
+                }
+
+                button.nube {
+                    left: 75%;
+                    transform: translateX(-50%);
+                    position: absolute;
+                    justify-content: right;
+                    border-radius: 5rem;
+                    outline: none;
+                    padding: 0.6rem 1rem;
+                    border: none;
+                    background-color: #24176D;
+                    color: #C4C4C4;
+                    top: 330px;
+                }
+
+            }
         }
     </style>
 </head>
@@ -58,62 +276,67 @@
     </nav>
     <main>
         <header>
-            <h1>16 - challenge conditionals</h1>
-            <h2>Solve problems using conditional logic.</h2>
+            <h1>16 - Challenge</h1>
+            <h2>Resuelve problemas usando lógica condicional.</h2>
 
         </header>
         <section>
             <div class="weather">
                 <div class="search">
                     <input class="query" type="text" placeholder="location">
-                    </input>
                     <button class="btn-search">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                            stroke="currentColor" class="size-6">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="m15.75 15.75-2.489-2.489m0 0a3.375 3.375 0 1 0-4.773-4.773 3.375 3.375 0 0 0 4.774 4.774ZM21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-4">
+                            <path fill-rule="evenodd"
+                                d="M9.965 11.026a5 5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06l-2.755-2.754ZM10.5 7a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z"
+                                clip-rule="evenodd" />
                         </svg>
+
+
+
+
                     </button>
                 </div>
-       
                 <div class="fondo">
-                    <h3 class="pais"></h3>
-                    <h2 class="ciudad"></h2> 
-                    <p class="fecha"></p>
-                    <h1 class="grados"></h1>
-                    <p class="condition"></p>
-                    <p class="humidity"></p>
-                    <p class="cloud"></p>
-
+                    <h4 class="pais"></h4>
+                    <h4 class="ciudad"></h4>
+                    <h4 class="fecha"></h4>
+                    <div class="temp">
+                        <img class="imgIco" src="" alt="">
+                        <h4 class="tempText"></h4>
+                    </div>
+                    <button class="condicion"></button>
+                    <button class="humedad"></button>
+                    <button class="nube"></button>
                 </div>
-          
-                
             </div>
         </section>
     </main>
     <script>
-        //elements
+        //
         const q = document.querySelector('.query')
         const btnSearch = document.querySelector('.btn-search')
         const infoList = document.querySelector('.info')
-        const pais = document.querySelector('.pais')
-        const cuiudad = querySelector('.ciudad')
-        const fecha = querySelector('.fecha')
-        const grados = querySelector('.grados')
-        const condition = querySelector('.condition')
-        const humidity = querySelector('.humidity')
-        const cloud = querySelector('.cloud')
 
+
+        fondo = document.querySelector('.fondo')
+
+        const pais = document.querySelector('.pais')
+        const ciudad = document.querySelector('.ciudad')
+        const fecha = document.querySelector('.fecha')
+        const condicion = document.querySelector('.condicion')
+        const humedad = document.querySelector('.humedad')
+        const nube = document.querySelector('.nube')
+        const imgIco = document.querySelector('.imgIco')
+        const tempText = document.querySelector('.tempText')
 
         //Events
         btnSearch.addEventListener('click', () => {
-            if(q.value.length > 0){
+            if (q.value.length > 0) {
                 showWeather(q.value)
                 q.value = ''
-            }else{
-                alert('Please enter a location')
+            } else {
+                alert('Por favor inserte una Ubicacion')
             }
-            
         })
 
         const showWeather = async (q) => {
@@ -122,38 +345,44 @@
             const data = await response.json()
             console.log(data)
 
-
-            const info = {
-                "country": data.location.country,
+            info = {
+                "Country": data.location.country,
                 "name": data.location.name,
-                "datatime": data.current.last_updated,
+                "datetime": data.current.last_updated,
                 "tempc": data.current.temp_c,
                 "isDay": data.current.is_day,
                 "conditionText": data.current.condition.text,
                 "conditionIcon": data.current.condition.icon,
                 "humidity": data.current.humidity,
                 "cloud": data.current.cloud
+
+
             }
-            //console.table(info)
+            console.log(info)
             //infoList.textContent = JSON.stringify(info)
-            /*infoList.innerHTML = ''
-            for(i in info) {
-                if(i ==  'conditionIcon'){
-                  infoList.innerHTML += `<li>${i}: <img src='${info[i]}' width='30'> </li> `  
-                } else {
-                     infoList.innerHTML += `<li>${i}: ${info[i]}</li> `  
-                }
-                
-            }*/
-            pais.textContent = info.country,
-            cuiudad.textContent = info.name,
-            fecha.textContent = info.datatime,
-            grados.textContent = info.tempc,
-            condition.textContent = info.condition.text,
-            humidity.textContent = info.current.humidity,
-            cloud.textContent = info.cloud
+            /* infoList.innerHTML = ''
+             for (i in info) {
+                 if (i == 'conditionIcon') {
+                     infoList.innerHTML += <li> ${i}: <img src='${info[i]}' width='30'></li>
+                 } else {
+                     infoList.innerHTML += <li>${i}: ${info[i]}</li>
+                 }
+             }*/
+            if (info.isDay == 0) {
+                fondo.classList.add('night')
+            } else {
+                fondo.classList.remove('night')
+            }
+            pais.textContent = info.Country
+            ciudad.textContent = info.name
+            fecha.textContent = info.datetime
+            condicion.textContent = `Condition: ${info.conditionText}`
+            humedad.textContent = `Humedity: ${info.humidity}`
+            nube.textContent = `Cloud: ${info.cloud}`
+            imgIco.src = info.conditionIcon
+            tempText.textContent = `${info.tempc}°`
         }
-        showWeather('Manizales') 
+        showWeather('Manizales')
     </script>
 </body>
 
