@@ -7,48 +7,108 @@
     <title>18 - Pokedex Api</title>
     <link rel="stylesheet" href="../css/styles.css">
     <style>
-        ul.pokemons {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 0.4rem;
-            align-items: center;
-            li {
-                border: 2px solid rgba(194, 184, 96, 0.6);
-                border-radius: 0.4rem;
-                text-align: center;
+        div.poke {
+            background-color: #1C2340;
+            width: 380px;
+            height: 700px;
+            border-radius: 20px;
+            margin-left: 25%;
 
-                h4,
-                h5 {
-                    margin: 0;
+            h1.poke {
+                margin: 1rem;
+                text-align: center;
+                padding: 15px;
+                font-size: 50px;
+            }
+
+            ul.pokemons {
+                list-style: none;
+                margin: 1rem;
+                padding: 0;
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 0.4rem;
+                align-items: center;
+                height: 520px;
+                overflow-y: scroll;
+                scrollbar-color: #4C5C9C transparent;
+                scrollbar-width: thin;
+
+                li {
+                    border: 2px solid #c2b86099;
+                    border-radius: 0.4rem;
                     text-align: center;
+
+                    h4,
+                    h5 {
+                        margin: 0;
+                        text-align: center;
+                    }
+                }
+
+                &.hide {
+                    display: none;
                 }
             }
-             &.hide {
-                display: none;
+
+            select.pk-generation {
+
+                padding: 0.4rem 0.8rem;
+                display: flex;
+                margin: 0.4rem auto;
+                border-radius: 0.2rem;
+                background-color: #4C5C9C;
+                border: none;
+
             }
+
+            img.loader {
+                display: flex;
+                margin: 5rem;
+                width: 300px;
+
+                &.hide {
+                    display: none;
+
+
+                }
+            }
+
         }
 
-        select.pk-generation {
-            appearance: none;
-            padding: 0.4rem 0.8rem;
-            display: flex;
-            margin: 2rem auto;
-            border-radius: 0.2rem;
-        }
-        img.loader {
-            display: flex;
-            margin: 5rem;
-            width: 300px;
-            &.hide {
-                display: none;
-                
-                
+        div.inicio {
+            background-color: #1C2340;
+            width: 380px;
+            height: 700px;
+            border-radius: 20px;
+            margin-left: 25%;
+
+            h1 {
+                text-align: center;
+                padding: 20px;
+                font-size: 50px;
+            }
+
+            img.inicio {
+                margin-left: 10%;
+
+            }
+
+            a.ver {
+                width: 340px;
+                height: 70px;
+                justify-content: center;
+                align-items: center;
+                border-radius: 10px;
+                background-color: #4C5C9C;
+                border: none;
+                color: white;
+                margin-top: 70px;
+                display: flex;
+                margin-left: 15px;
+
             }
         }
-        
     </style>
 </head>
 
@@ -68,12 +128,25 @@
             <h2>Obtén y muestra datos de la API de Pokedex.</h2>
 
         </header>
-        <section>
-            <select class="pk-generation">
 
-            </select>
-            <img src="images/tales.gif" alt="" class="loader">
-            <ul class="pokemons"></ul>
+        <section>
+            <!-- Screen 01 - inicio -->
+            <div id="inicio" class="inicio">
+                <H1>POKEDEX</H1>
+                <img src="images/inicio-pokedex.svg" alt="" class="inicio">
+                <a class="ver" href="#poke"><h2>Ver pokemons</h2></a>
+            </div>
+            <!-- Screen 02 - pokemons -->
+            <div class="poke" id="poke">
+                <h1 class="poke">POKEMONS</h1>
+                <select class="pk-generation">
+                </select>
+                <img src="images/tales.gif" alt="" class="loader">
+                <ul class="pokemons"></ul>
+            </div>
+
+            <!-- Screen 03 - caracteristic -->
+            <div id="caracteristicas" class="caracteristicas"></div>
         </section>
     </main>
     <script>
@@ -120,7 +193,7 @@
 
         // select
         const pkGeneration = document.querySelector('.pk-generation')
-        
+
         pkGeneration.innerHTML = `<option value="">Select a generation...</option>`
         generations['range'].forEach((element, index) => {
             pkGeneration.innerHTML += `<option value="${index}">Generation ${++index}</option>`
@@ -142,10 +215,10 @@
             pokemons.classList.add('hide')
             loader.classList.remove('hide')
             pokemons.innerHTML = ""
-            setTimeout(()=>{
+            setTimeout(() => {
                 loader.classList.add('hide')
                 pokemons.classList.remove('hide')
-            },2000)
+            }, 2000)
             for (let pk = start; pk <= end; pk++) {
                 const url = `https://pokeapi.co/api/v2/pokemon/${pk}`
                 const response = await fetch(url)
@@ -155,7 +228,7 @@
                 //console.log(data)
 
                 pokemons.innerHTML += `<li style="border-color: ${types[typeColor]}; background: linear-gradient(black, ${types[typeColor]})">
-                                            <h4>${data.id}</h4>
+                                            <h4># ${data.id}</h4>
                                             <h5>${data.name}</h5>
                                             <img src="${data.sprites.front_default}">
                                         </li>`
