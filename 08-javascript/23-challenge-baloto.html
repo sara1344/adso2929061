@@ -1,27 +1,218 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>23 - hallenge baloto</title>
     <link rel="stylesheet" href="../css/styles.css">
+    <style>
+        div.fondo {
+            background-color: #0C1538;
+            width: 380px;
+            height: 700px;
+            margin-left: 15%;
 
+            h2 {
+                color: black;
+            }
+            div.num {
+                position: relative;
+
+                .imnum {
+                    margin: 1rem auto 0rem auto;
+                    margin-top: 0px;
+                    padding-top: 80px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+
+                .num1 {
+                    position: absolute;
+                    top: 160PX;
+                    left: 58px;
+                }
+
+                .num2 {
+                    position: absolute;
+                    top: 95PX;
+                    left: 133px;
+                }
+
+                .num3 {
+                    position: absolute;
+                    top: 95PX;
+                    left: 218px;
+                }
+
+                .num4 {
+                    position: absolute;
+                    top: 165PX;
+                    left: 293px;
+                }
+            }
+
+            .tnum {
+                margin: 0rem 0rem 2rem 0rem;
+                margin-top: 0px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                color: white;
+            }
+
+
+            button.play {
+                border: none;
+                background-color: transparent;
+                appearance: none;
+                cursor: pointer;
+                margin: 1rem auto 2rem auto;
+
+                margin-left: 30px;
+                height: 100px;
+                width: 320px;
+                transition: transform 0.2s ease-in;
+            }
+
+            .tser {
+                margin: 0rem 0rem 0rem 0rem;
+                margin-top: 0px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                color: white;
+            }
+
+            div.ser {
+                position: relative;
+
+                .imser {
+                    margin: 0rem auto 0rem auto;
+                    margin-top: 0px;
+
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+
+                .ser1 {
+                    font-size: 30px;
+                    position: absolute;
+                    top: 20PX;
+                    left: 73px;
+                    color: white;
+                }
+
+                .ser2 {
+                    font-size: 30px;
+                    position: absolute;
+                    top: 80PX;
+                    left: 180px;
+                    color: white;
+                }
+
+                .ser3 {
+                    font-size: 30px;
+                    position: absolute;
+                    top: 20PX;
+                    left: 291px;
+                    color: white;
+                }
+            }
+        }
+    </style>
 </head>
+
 <body class="js">
     <nav>
         <a href="index.html">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#ffffff" d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                <path fill="#ffffff"
+                    d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z" />
+            </svg>
         </a>
-     </nav>
+    </nav>
     <main>
         <header>
             <h1>23 - hallenge baloto</h1>
             <h2>Simulate a lottery number generator.</h2>
-        
+
         </header>
         <section>
-
+            <div id="fondo" class="fondo">
+                
+                <div class="num">
+                    <img class="imnum" src="images/sarlotto/numeritos.svg" alt="">
+                    <h2 class="num1">15</h2>
+                    <h2 class="num2">20</h2>
+                    <h2 class="num3">13</h2>
+                    <h2 class="num4">30</h2>
+                </div>
+                <h2 class="tnum">
+                    Número
+                </h2>
+                <button class="play">
+                    <img class="btnn" src="images/sarlotto/btnsar.svg" alt="">
+                </button>
+                <h2 class="tser">
+                    Serie
+                </h2>
+                <div class="ser">
+                    <img class="imser" src="images/sarlotto/series.svg" alt="">
+                    <h2 class="ser1">1</h2>
+                    <h2 class="ser2">2</h2>
+                    <h2 class="ser3">3</h2>
+                </div>
+                
+            </div>
         </section>
     </main>
+    <script>
+        const num1 = document.querySelector('.num1')
+        const num2 = document.querySelector('.num2')
+        const num3 = document.querySelector('.num3')
+        const num4 = document.querySelector('.num4')
+        const btn = document.querySelector('.btnn')
+        const ser1 = document.querySelector('.ser1')
+        const ser2 = document.querySelector('.ser2')
+        const ser3 = document.querySelector('.ser3')
+
+        let series = false
+
+        function aleatory(min, max, element) {
+            const rand = Math.floor(Math.random() * max)
+
+            let count = 0 //cambia
+
+            const interval = setInterval(() => {
+                if (count == rand) {
+                    clearInterval(interval)
+                }
+                element.textContent = ++count
+                series = false
+            }, 100)
+        }
+        btn.addEventListener('click', () => {
+            btn.disabled = true
+
+            aleatory(0, 50, num1)
+            aleatory(0, 50, num2)
+            aleatory(0, 50, num3)
+            aleatory(0, 50, num4)
+
+
+            setTimeout(() => {
+                aleatory(0, 9, ser1)
+                aleatory(0, 9, ser3)
+                aleatory(0, 9, ser2)
+            }, 4000)
+
+        });
+
+    </script>
 </body>
+
 </html>
