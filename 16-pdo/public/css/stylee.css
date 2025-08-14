@@ -296,7 +296,7 @@ main.edit form select {
     font-family: Montserrat-Regular;
     outline: none;
     width: 340px;
-    -webkit-appearance: none;
+    --webkit-appearance: none;
 }
 main.add form input:focus,
 main.add form div.select:hover,
