@@ -1,97 +1,331 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>28 - Challenge-events Time</title>
-    <link rel="stylesheet" href="../css/styles.css">
-    <style>
-        /* Agrega aquí los estilos CSS que tenías para la "primeraVista", la "segundaVista" y los elementos del juego */
-        .primeraVista, .segundaVista {
-            width: 402px;
-            height: 874px;
-            margin: 0 auto;
-            position: relative;
-        }
+  <meta charset="UTF-8" />
+  <title>Chicken Crossing - Carriles</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: #111;
+      font-family: Arial, sans-serif;
+    }
 
-        .primeraVista {
-            background: url(images/28/fondo.png) no-repeat center;
-            display: block; /* Por defecto se muestra */
-            text-align: center;
-        }
+    #gameContainer {
+      position: relative;
+      width: 402px;
+      height: 874px;
+      overflow: hidden;
+    }
 
-        .segundaVista {
-            display: none; /* Por defecto está oculta */
-        }
-        
-        .juego {
-            width: 402px;
-            height: 721px;
-            background: url(images/28/carretera.png) no-repeat center;
-        }
+    /* PANTALLA DE SELECCIÓN */
+    #selection {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 402px;
+      height: 874px;
+      background: url("images/fondoMenu.png") no-repeat center top;
+      background-size: cover;
+      display: block;
+      z-index: 20;
+    }
 
-        .arriba {
-            width: 402px;
-            height: 83px;
-            background: url(images/28/parte\ de\ arriba.png) no-repeat center;
-        }
-        
-        /* Estilos para los botones y la imagen del pollo en la pantalla de inicio */
-        .controls {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
-        
-        .btn-play {
-            padding: 10px 20px;
-            font-size: 20px;
-            cursor: pointer;
-        }
-    </style>
+    .select-card {
+      position: absolute;
+      left: 50%;
+      top: 320px;
+      transform: translateX(-50%);
+      width: 340px;
+      background: rgba(45, 63, 83, 0.95);
+      border: 3px solid #6b3f23;
+      border-radius: 14px;
+      padding: 18px 18px 22px 18px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      box-shadow: 0 6px 0 rgba(0,0,0,0.45);
+    }
+
+    .select-card h2 {
+      margin: 6px 0 0 0;
+      color: #f5d07a;
+      font-size: 20px;
+      text-align: center;
+      font-weight: 700;
+      letter-spacing: 0.4px;
+    }
+
+    .chickens {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      width: 100%;
+      padding-top: 6px;
+    }
+
+    .chicken-option {
+      width: 62px;
+      cursor: pointer;
+      border: 3px solid transparent;
+      border-radius: 10px;
+      transition: transform 0.15s ease, border-color 0.15s ease;
+    }
+    .chicken-option:hover {
+      transform: translateY(-6px) scale(1.06);
+      border-color: #f2c46a;
+    }
+
+    .hint-box {
+      width: 100%;
+      background: rgba(0,0,0,0.07);
+      border: 2px solid rgba(107,63,35,0.25);
+      border-radius: 10px;
+      padding: 10px;
+      color: #e6e6e6;
+      font-size: 12px;
+      text-align: center;
+      line-height: 1.2;
+    }
+
+    .play-wrap {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+    #playBtn {
+      padding: 10px 34px;
+      background: #f1a13a;
+      color: #ffffff;
+      border: 2px solid #6b3f23;
+      border-radius: 18px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: 700;
+      box-shadow: 0 4px 0 rgba(0,0,0,0.35);
+    }
+    #playBtn:active { transform: translateY(2px); box-shadow: none; }
+
+    /* PANTALLA DEL JUEGO */
+    #game {
+      display: none;
+      position: relative;
+      width: 402px;
+      height: 874px;
+      background: url("images/carretera.png") no-repeat center top;
+      background-size: cover;
+      overflow: hidden;
+    }
+
+    #player {
+      position: absolute;
+      bottom: 20px;
+      width: 60px;
+      height: 60px;
+      transition: left 0.08s;
+      pointer-events: none;
+    }
+
+    .car {
+      position: absolute;
+      top: -120px;
+      width: 60px;
+      height: 100px;
+      will-change: transform, top;
+    }
+
+    #hud {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      color: #fff;
+      font-size: 18px;
+      font-weight: bold;
+      text-shadow: 0 1px 0 #000;
+      z-index: 30;
+    }
+
+    #gameOver {
+      display: none;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: red;
+      font-size: 40px;
+      font-weight: bold;
+      text-shadow: 0 2px 4px #000;
+      z-index: 50;
+    }
+  </style>
 </head>
+<body>
+  <div id="gameContainer">
+    <!-- SELECCIÓN -->
+    <div id="selection">
+      <div class="select-card">
+        <h2>Choose your chicken</h2>
+        <div class="chickens">
+          <img src="images/yellow.png" class="chicken-option" data-chicken="images/yellow.png">
+          <img src="images/orange.png" class="chicken-option" data-chicken="images/orange.png">
+          <img src="images/white.png" class="chicken-option" data-chicken="images/white.png">
+          <img src="images/pink.png" class="chicken-option" data-chicken="images/pink.png">
+        </div>
+        <div class="hint-box">
+          <strong>How to play?</strong><br>
+          Usa las teclas ← → para mover el pollo entre carriles.
+        </div>
+        <div class="play-wrap">
+          <button id="playBtn">PLAY</button>
+        </div>
+      </div>
+    </div>
 
-<body class="js">
-    <nav>
-        <a href="index.html">
-            <svg xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 448 512">
-                <path fill="#ffffff"
-                    d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z" />
-            </svg>
-        </a>
-    </nav>
-    <main>
-        <header>
-            <h1>28 - Challenge-events Time</h1>
-        </header>
+    <!-- JUEGO -->
+    <div id="game">
+      <div id="hud">❤️ Vidas: 3 | ⏱️ Tiempo: 0s</div>
+      <img id="player" src="" alt="Chicken player">
+      <div id="gameOver">GAME OVER</div>
+    </div>
+  </div>
 
-        <section class="primeraVista">
-            <div class="inicio-content" style="padding-top: 500px;">
-              
-                
-                <div class="chicken-selector" style="margin-top: 20px;">
-                    <button id="btn-former"><img src="images/28/btn-former.png" alt=""></button>
-                    
-                    <button id="btn-next"><img src="images/28/btn-next.png" alt=""></button>
-                </div>
+  <script>
+    const selection = document.getElementById("selection");
+    const playBtn = document.getElementById("playBtn");
+    const game = document.getElementById("game");
+    const player = document.getElementById("player");
+    const hud = document.getElementById("hud");
+    const gameOverText = document.getElementById("gameOver");
 
-               
-                <button class="btn-play"><img src="images/28/btn-play.png" alt=""></button>
-            </div>
-        </section>
+    /* CONFIG */
+    const ROAD_WIDTH = 291;
+    const CAR_WIDTH = 60;
+    const CAR_HEIGHT = 100;
+    const PLAYER_W = 60;
+    const PLAYER_H = 60;
+    const SPAWN_INTERVAL = 900;
+    const CAR_FALL_SPEED = 9;
 
-        <section class="segundaVista">
-            <div class="arriba"></div>
-            <div class="juego">
-                <canvas id="gameCanvas"></canvas>
-            </div>
-        </section>
+    /* CARRILES */
+    const LANES = 4;
+    let laneWidth = Math.floor(ROAD_WIDTH / LANES);
 
-    </main>
-    <script src="js/game.js"></script>
+    let chosenChicken = "";
+    let lives = 3;
+    let time = 0;
+    let timerInterval;
+    let spawnIntervalId;
+    let currentLane = 1; // pollo empieza en el 2º carril (índice base 0)
+    let roadLeft = 0;
+    let roadRight = 0;
+    const carImages = ["images/car1.png", "images/car2.png", "images/car3.png", "images/car4.png"];
+
+    /* Elegir pollo */
+    document.querySelectorAll(".chicken-option").forEach(option => {
+      option.addEventListener("click", () => {
+        chosenChicken = option.dataset.chicken;
+        document.querySelectorAll(".chicken-option").forEach(i => i.style.borderColor = "transparent");
+        option.style.borderColor = "yellow";
+      });
+    });
+
+    playBtn.addEventListener("click", () => {
+      if (!chosenChicken) { alert("Elige un pollo primero 🐔"); return; }
+      selection.style.display = "none";
+      game.style.display = "block";
+      player.src = chosenChicken;
+
+      setupRoadAndPlayer();
+      startGame();
+    });
+
+    function setupRoadAndPlayer() {
+      const gameW = game.clientWidth;
+      roadLeft = Math.round((gameW - ROAD_WIDTH) / 2);
+      roadRight = roadLeft + ROAD_WIDTH;
+
+      currentLane = 1; // arranca en carril 2
+      player.style.left = (roadLeft + currentLane * laneWidth + (laneWidth - PLAYER_W) / 2) + "px";
+      player.style.bottom = "30px";
+    }
+
+    /* Movimiento del pollo entre carriles */
+    function movePlayer(dir) {
+      if (dir === "left" && currentLane > 0) currentLane--;
+      if (dir === "right" && currentLane < LANES - 1) currentLane++;
+      player.style.left = (roadLeft + currentLane * laneWidth + (laneWidth - PLAYER_W) / 2) + "px";
+    }
+
+    function startGame() {
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "ArrowLeft") movePlayer("left");
+        if (e.key === "ArrowRight") movePlayer("right");
+      });
+
+      timerInterval = setInterval(() => {
+        time++;
+        hud.innerText = `❤️ Vidas: ${lives} | ⏱️ Tiempo: ${time}s`;
+      }, 1000);
+
+      spawnIntervalId = setInterval(spawnLoop, SPAWN_INTERVAL);
+    }
+
+    /* Spawn de coches en carriles */
+    function spawnLoop() {
+      const img = carImages[Math.floor(Math.random() * carImages.length)];
+      const lane = Math.floor(Math.random() * LANES);
+      const x = roadLeft + lane * laneWidth + (laneWidth - CAR_WIDTH) / 2;
+      spawnCar(img, x);
+    }
+
+    function spawnCar(src, xPos) {
+      const car = document.createElement("img");
+      car.src = src;
+      car.classList.add("car");
+      car.style.left = xPos + "px";
+      car.style.top = "-138px";
+      game.appendChild(car);
+
+      let carY = -120;
+      const fallId = setInterval(() => {
+        carY += CAR_FALL_SPEED;
+        car.style.top = carY + "px";
+
+        const playerRect = player.getBoundingClientRect();
+        const carRect = car.getBoundingClientRect();
+
+        if (
+          carRect.bottom > playerRect.top &&
+          carRect.top < playerRect.bottom &&
+          carRect.left < playerRect.right &&
+          carRect.right > playerRect.left
+        ) {
+          lives--;
+          hud.innerText = `❤️ Vidas: ${lives} | ⏱️ Tiempo: ${time}s`;
+          clearInterval(fallId);
+          if (car.parentElement) car.remove();
+          if (lives <= 0) { endGame(); }
+        }
+
+        if (carY > game.clientHeight + 50) {
+          clearInterval(fallId);
+          if (car.parentElement) car.remove();
+        }
+      }, 30);
+    }
+
+    function endGame() {
+      clearInterval(timerInterval);
+      clearInterval(spawnIntervalId);
+      gameOverText.style.display = "block";
+      setTimeout(() => location.reload(), 3000);
+    }
+  </script>
 </body>
-
 </html>
