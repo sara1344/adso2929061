@@ -23,7 +23,7 @@
       overflow: hidden;
     }
 
-    /* PANTALLA DE SELECCIÓN */
+
     #selection {
       position: absolute;
       top: 0;
@@ -112,7 +112,7 @@
     }
     #playBtn:active { transform: translateY(2px); box-shadow: none; }
 
-    /* PANTALLA DEL JUEGO */
+
     #game {
       display: none;
       position: relative;
@@ -187,7 +187,7 @@
       </div>
     </div>
 
-    <!-- JUEGO -->
+
     <div id="game">
       <div id="hud">❤️ Vidas: 3 | ⏱️ Tiempo: 0s</div>
       <img id="player" src="" alt="Chicken player">
@@ -212,7 +212,7 @@
     const SPAWN_INTERVAL = 900;
     const CAR_FALL_SPEED = 9;
 
-    /* CARRILES */
+
     const LANES = 4;
     let laneWidth = Math.floor(ROAD_WIDTH / LANES);
 
@@ -221,7 +221,7 @@
     let time = 0;
     let timerInterval;
     let spawnIntervalId;
-    let currentLane = 1; // pollo empieza en el 2º carril (índice base 0)
+    let currentLane = 1; 
     let roadLeft = 0;
     let roadRight = 0;
     const carImages = ["images/car1.png", "images/car2.png", "images/car3.png", "images/car4.png"];
@@ -250,12 +250,12 @@
       roadLeft = Math.round((gameW - ROAD_WIDTH) / 2);
       roadRight = roadLeft + ROAD_WIDTH;
 
-      currentLane = 1; // arranca en carril 2
+      currentLane = 1; 
       player.style.left = (roadLeft + currentLane * laneWidth + (laneWidth - PLAYER_W) / 2) + "px";
       player.style.bottom = "30px";
     }
 
-    /* Movimiento del pollo entre carriles */
+
     function movePlayer(dir) {
       if (dir === "left" && currentLane > 0) currentLane--;
       if (dir === "right" && currentLane < LANES - 1) currentLane++;
@@ -276,7 +276,7 @@
       spawnIntervalId = setInterval(spawnLoop, SPAWN_INTERVAL);
     }
 
-    /* Spawn de coches en carriles */
+ 
     function spawnLoop() {
       const img = carImages[Math.floor(Math.random() * carImages.length)];
       const lane = Math.floor(Math.random() * LANES);

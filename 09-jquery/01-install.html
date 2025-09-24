@@ -6,7 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>01-install</title>
     <link rel="stylesheet" href="../css/styles.css">
-
+    <style>
+        body main section p.install {
+            background-color: #73b873;
+            border-radius: 0.2rem;
+            color: #152115;
+            margin: 2rem auto;
+            padding: 0.6rem;
+        }
+    </style>
 </head>
 
 <body class="jquery">
@@ -26,10 +34,16 @@
             </h2>
 
         </header>
-        <section>
-
+        <section class="section">
+            <p class="install"></p>
         </section>
     </main>
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('.install').text('✅ JQuery was Installed Succes')
+        })
+    </script>
 </body>
 
 </html>
