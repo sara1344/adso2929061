@@ -335,3 +335,96 @@ body.php {
         }
     }
 }
+
+
+
+/*- - - - - - - - - - - - - - - - */
+/* D A T E S */
+/*- - - - - - - - - - - - - - - - */
+
+
+body.dates {
+    background-color: #000000; 
+    background-image: none; 
+}
+
+
+section {
+    background-color: var(--color-1); 
+    width: 90%;
+    max-width: 500px; 
+    border-radius: 12px;
+    padding: 2rem; 
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    text-align: center;
+    padding: 1rem;
+    margin-block: 10px;
+}
+
+.container {
+    width: 100%;
+}
+
+.container h3 {
+    color: var(--color-2);
+    font-size: 1.2rem;
+    font-weight: 400;
+    margin-top: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    gap: 1rem;
+    width: 80%; 
+    max-width: 300px;
+    margin: 0 auto; 
+}
+
+label {
+    align-self: flex-start; 
+    font-weight: 500;
+}
+
+input[type="date"] {
+    padding: 0.8rem;
+    border: none;
+    border-radius: 6px;
+    width: 100%;
+    color: var(--color-1);
+    background-color: var(--color-2);
+    font-family: var(--font-fm);
+    font-size: 1rem;
+}
+
+input[type="submit"] {
+    background-color: #5f3b88; 
+    color: var(--color-2);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: 600;
+    transition: background-color 0.3s;
+    width: 100%;
+    margin-top: 1rem;
+}
+
+input[type="submit"]:hover {
+    background-color: #794db5; 
+}
+
+section h3:last-of-type {
+    margin-top: 2rem;
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: #9fa1f3; 
+    border-bottom: none;
+}
