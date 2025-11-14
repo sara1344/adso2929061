@@ -214,7 +214,8 @@ INSERT INTO pokemons VALUES ( DEFAULT, 'Rattata', 'Normal', 810, 60, 65, 22, 2, 
             <!--  -->
             <h3>TRANSACTION</h3>
             <small>Begin a transaction, delete something, rollback</small>
-            <textarea>START TRANSACTION; DELETE FROM pokemons WHERE id = 19; SELECT * FROM pokemons;
+            <textarea>START TRANSACTION; DELETE FROM pokemons WHERE id = 19;
+SELECT * FROM pokemons;
 ROLLBACK;
 SELECT * FROM pokemons;</textarea>
         </section>
