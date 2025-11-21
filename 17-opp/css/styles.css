@@ -284,7 +284,7 @@ body.mmenu {
 
 
 /*- - - - - - */
-/* P H P */
+/*O O P */
 /*- - - - - - */
 
 body.opp {
@@ -315,12 +315,38 @@ body.opp {
             padding: 2rem;
             display: flex;
             flex-direction: column;
-
+   
             p {
                 color: #a0a0a0;
                 font-size: 1rem;
                 align-items: center;
             }
+
+            table {
+                border: 1px solid #0060;
+                border-collapse: collapse;
+                color: #fff;
+                width: 100%;
+
+                thead {
+                    th {
+                        border: 1px solid #0006;
+                        background-color: #0006;
+                        color: #fff;
+                        padding: 0.4rem;
+                    }
+                }
+
+                tbody {
+                    td{
+                        border: 1px solid #0006;
+                        background-color: #fff6;
+                        text-align: center;
+                        padding: 0.8rem 0.4rem;
+                    }
+                }
+            }
+
         }
 
         menu {
@@ -330,12 +356,12 @@ body.opp {
 
                 span {
                     background-color: #7f7e7e;
-                    
+
                 }
             }
 
 
         }
+
     }
 }
-
