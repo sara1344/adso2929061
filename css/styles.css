@@ -483,7 +483,7 @@ body.sass {
                 color: rgba(255, 255, 255, 0.89);
 
                 span {
-                    background-color: #de11e28a;
+                    background-color: #b241b48a;
                 }
             }
 
@@ -839,6 +839,7 @@ body.sql {
 
                 span {
                     background-color: #2E20B8;
+                    background-color: #8114838a;
                 }
             }
 

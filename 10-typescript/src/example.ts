@@ -1,2 +1,3 @@
-const fullName: string = 'John Wick';
-console.log(`Hello, ${fullName}!`);
+const fullName: string = 'Carlos Andica Gomez'
+const age: number = 65
+console.log(`Welcome: ${fullName} -> Age: ${age }`)
