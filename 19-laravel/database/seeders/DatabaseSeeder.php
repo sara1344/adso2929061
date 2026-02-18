@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\User;
+use App\Models\Pet;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -21,6 +22,7 @@ class DatabaseSeeder extends Seeder
             AdoptionSeeder::class,
         ]);
 
-        User::factory(20000)->create();  
+        User::factory(50)->create();  
+        Pet::factory(50)->create(); 
     }
 }
