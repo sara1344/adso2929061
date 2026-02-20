@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  */
 class PetFactory extends Factory
 {
-    use HasFactory;    
+    use HasFactory;
 
     /**
      * Define the model's default state.
@@ -20,15 +20,38 @@ class PetFactory extends Factory
      */
     public function definition(): array
     {
+        $petNames = ['Buddy', 'Max', 'Charlie', 'Bella', 'Lucy', 'Daisy', 'Molly', 'Lola', 'Rocky', 'Sadie'];
+        $dogBreeds = ['Labrador Retriever', 'German Shepherd', 'Golden Retriever', 'Bulldog', 'Beagle'];
+        $catBreeds = ['Siamese', 'Persian', 'Maine Coon', 'Ragdoll', 'Sphynx'];
+        $pigBreeds = ['Yorkshire', 'Hampshire', 'Duroc', 'Landrace', 'Pietrain'];
+        $birdBreeds = ['Parrot', 'Canary', 'Finch', 'Sparrow', 'Cardinal'];
+
+        $kind = fake()->randomElement(array('Dog', 'Cat', 'Pig', 'Bird'));
+
+        switch ($kind) {
+            case 'Dog':
+                $breed = fake()->randomElement($dogBreeds);
+                break;
+            case 'Cat':
+                $breed = fake()->randomElement($catBreeds);
+                break;
+            case 'Pig':
+                $breed = fake()->randomElement($pigBreeds);
+                break;
+            default:
+                $breed = fake()->randomElement($birdBreeds);
+                break;
+        }
+        $name = fake()->randomElement($petNames);
         return [
-            'name' => fake()->name,
-            'kind' => fake()->randomElement(['Dog', 'Cat', 'Ping', 'Mouse']),
+            'name' => $name,
+            'kind' => $kind,
             'weight' => fake()->numerify('#.#'),
             'age' => fake()->numberBetween(1, 15),
-            'breed' => fake()->randomElement(['type 1', 'type 2', 'type 3']),
+            'breed' => $breed,
             'location' => fake()->city,
             'description' => fake()->sentence(5),
-            
+
         ];
     }
 }
