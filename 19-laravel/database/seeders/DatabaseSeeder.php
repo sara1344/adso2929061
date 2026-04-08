@@ -16,13 +16,18 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+
         $this->call([
             UserSeeder::class,
             PetSeeder::class,
-            AdoptionSeeder::class,
+            AdoptionSeeder::class
         ]);
+        User::factory(50)->create();
+        Pet::factory(50)->create();
 
-        User::factory(50)->create();  
-        Pet::factory(50)->create(); 
+        //User::factory()->create([
+        //    'name' => 'Test User',
+        //    'email' => 'test@example.com',
+        //]);
     }
 }

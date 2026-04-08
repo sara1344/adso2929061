@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 
@@ -23,7 +24,15 @@ class UserFactory extends Factory
      */
     public function definition(): array
     {
+        $name ='';
+        $fullname = $name .' '.fake()->lastName();
         $gender = fake()->randomElement(['male', 'female']);
+        if ($gender === 'male') {
+            $name=fake()->firstNameMale();
+        }else{
+            $name=fake()->firstNameFemale();
+        }
+        $email = strtolower($name).fake()->numerify('###').'@mail.com';
         $url = "https://xsgames.co/randomusers/avatar.php?g=" . $gender;
         $document = fake()->numerify('75######');
         $nombreArchivo="{$document}.png";
@@ -31,12 +40,12 @@ class UserFactory extends Factory
         copy($url, $rutaDestino);
         return [
             'document' => $document,
-            'fullname' => fake()->name($gender),
+            'fullname' => $fullname,
             'gender' => $gender,
             'birthdate' => fake()->dateTimeBetween('1976-01-01', '2006-12-31'),
             'photo' => $nombreArchivo,
             'phone' => fake()->numerify('320#######'),
-            'email' => fake()->unique()->safeEmail(),
+            'email' => $email,
             'email_verified_at' => now(),
             'password' => bcrypt('12345'),
             'remember_token' => Str::random(10),

@@ -1,54 +1,101 @@
 <?php
 
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use Carbon\Carbon;
+use App\Http\Controllers\UserController;
 
 Route::get('/', function () {
     return view('welcome');
 });
-route::get('HelloWorld', function () {
-    return '<h1>Hello World! 🌎</h1>';
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-route::get('sayhello/{name}', function () {
-    return '<h1>🤗Hello ' . request()->name . '</h1>';
+Route::get('/', function () {
+    return view('welcome');
 });
-
-Route::get('getall/pets', function () {
-    $pers = App\Models\Pet::take(10)->get();
-    dd($pers->toArray());
+Route::get('helloworld',function(){
+    return '<h1>Hellos World :) </h1>';
 });
-
-Route::get('show/pet/{id}', function () {
-    $pets = App\Models\Pet::find(request()->id);
+Route::get('sayhello/{name}',function(){
+    $say = '';
+    return '<h1>👍 Hello: ' . request()->name . '</h1>';
+});
+Route::get('getallpets',function(){
+    $pets = App\Models\Pet::take(10)->get();
     dd($pets->toArray());
 });
-
-// Reto
-// Debe de llamar a 20 usuarios, mostrar el nombre completo, cuantos años tiene y hace cuanto se unió, por ultimo ponerle estilos a la tabla.
-//que el usuario que no tenga imagen le aparezla la imagen no-imagen.png
-Route::get('view/allpets', function () {
-    $pets = App\Models\Pet::all();
-    return view('listpets')->with('pets', $pets);
+Route::get('show/pet/{id}',function(){
+    $pet = App\Models\Pet::find(request()->id);
+    dd($pet->toArray());
 });
 
-Route::get('challenge', function () {
-    echo "<h1 style='text-align:center; color:purple; font-size:17px; font-family:arial; padding:30px'>Challenge🧩</h1>
-    <table border='3' style='margin:auto; width: 50%; border-radius:10px; border-color:purple;'>
-        <tr>
-        <th style='color:purple; font-size:17px; font-family:arial; '>Photo</th>
-            <th style='color:purple; font-size:17px; font-family:arial; '>Full name</th>
-            <th style='color:purple; font-size:17px; font-family:arial;'>Age</th>
-            <th style='color:purple; font-size:17px; font-family:arial;'>Create at</th>
-        </tr>";
+Route::get('view/allpets',function(){
+    $pets = App\Models\Pet::all() ;
+    return view('listpets')->with('pets',$pets);
+});
+
+Route::get('challenge',function(){
     $users = App\Models\User::take(20)->get();
+    echo '<table style="border: 1px solid"> 
+            <tr style="border: 1px solid; background-color: black; color: white">
+                <td style="border: 1px solid">nombre</td>
+                <td style="border: 1px solid">Correo</td>
+                <td style="border: 1px solid">Telefono</td>
+                <td style="border: 1px solid">Edad</td>
+                <td style="border: 1px solid">Creado</td>
+                <td style="border: 1px solid">photo</td>
+            </tr>';
     foreach ($users as $user) {
-        $age = \Carbon\Carbon::parse($user->birthdate)->age;
-        $joined = \Carbon\Carbon::parse($user->created_at)->diffForHumans();
-        echo "<tr>
-                <td style='font-family:arial; background-color:#cc70c9;'><img src='" . asset('images/' . $user->photo) . "' width='70px' height='70px' style='border-radius:10%; margin:10px; margin-right:-20px;'></td>
-                <td style='font-family:arial; background-color:#cc70c9;padding:5px'>{$user->fullname}</td>
-                <td style='font-family:arial;background-color:#cc70c9;padding:5px'>{$age}</td>
-                <td style='font-family:arial; background-color:#cc70c9;padding:5px'>{$joined}</td>
-              </tr  >";
+        echo '<tr style="border: 1px solid">';
+        $name=$user->fullname;
+        $mail=$user->email;
+        $phone=$user->phone;
+        $edad = Carbon::parse($user->birthdate)->age;
+        $created=$user->created_at->diffForHumans();
+        $photo=asset("images/" . $user->photo);
+        echo '<td style="border: 1px solid; background-color: gray; color: white">'. $name .' </td>
+                <td style="border: 1px solid; background-color: gray; color: white">'. $mail .'</td>
+                <td style="border: 1px solid; background-color: gray; color: white">'. $phone .'</td>
+                <td style="border: 1px solid; background-color: gray; color: white">'. $edad .' años </td>
+                <td style="border: 1px solid; background-color: gray; color: white">' . $created . '</td>
+                <td style="border: 1px solid"><img width="50px" height="50px" src="' . $photo . '"></td>
+            </tr>';
     }
+    echo '</table>';
 });
+
+Route::get('view/pet/{id}',function(){
+    $pet = App\Models\Pet::find(request()->id);
+    return view('showpet')->with('pet',$pet);
+});
+
+//Middleware Auth
+Route::middleware('auth')->group(function() {
+    Route::resources([
+        'users'=> UserController::class
+        //'pets', PetController::class
+        //'adoptions', AdoptionController::class
+    ]);
+
+    //Exports
+    Route::get('export/users/pdf',[UserController::class,'pdf']);
+    Route::get('export/users/excel',[UserController::class,'excel']);
+
+    //Import Excel
+    Route::POST('import/users',[UserController::class,'import']);
+
+    //search
+    Route::post('search/users',[UserController::class,'search']);
+});
+
+
+require __DIR__.'/auth.php';

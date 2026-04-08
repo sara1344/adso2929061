@@ -27,10 +27,8 @@ class User extends Authenticatable
         'email',
         'password',
         'active',
-        'role',
+        'role'
     ];
-
-
 
     /**
      * The attributes that should be hidden for serialization.
@@ -54,9 +52,18 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
-    //relationShip
+
+    //Relationships
     //User has many adoptions
+
     public function adoptions(){
         return $this->hasMany(Adoption::class);
     }
+
+    //search by scope
+    public function scopenames($users, $q){
+        if(trim($q)){
+            $users->where('fullname','LIKE', "%$q%")->orWhere('email','LIKE',"%$q%");
+        }
+    }    
 }
