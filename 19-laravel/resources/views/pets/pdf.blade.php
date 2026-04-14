@@ -30,8 +30,8 @@
     <table>
         <thead>
             <tr>
-                <th>ID</th>
-                <th>Photo</th>
+                <th>Name</th>
+                <th>Image</th>
                 <th>Kind</th>
                 <th>Weight</th>
                 <th>Age</th>
@@ -40,13 +40,20 @@
                 <th>Description</th>
                 <th>Active</th>
                 <th>Status</th>
+                
             </tr>
         </thead>
         <tbody>
             @foreach ($pets as $pet)
             <tr>
-                <td>{{ $pet->id }}</td>
-                <td>{{ $pet->photo }}</td>
+                <td>{{ $pet->name }}</td>
+                <td>
+                    @if ($pet->image != 'no-photo.png')
+                        <img src="{{ public_path().'/images/'.$pet->image }}" width="96px">
+                    @else
+                        No Photo
+                    @endif
+                </td>
                 <td>{{ $pet->kind }}</td>
                 <td>{{ $pet->weight }}</td>
                 <td>{{ $pet->age }}</td>
@@ -54,28 +61,17 @@
                 <td>{{ $pet->location }}</td>
                 <td>{{ $pet->description }}</td>
                 <td>
-                    @if ($user->active == 1)
+                    @if ($pet->active == 1)
                         Active
                     @else
                         Inactive
                     @endif
                 </td>
                 <td>
-                    @if ($user->status == 1)
-                        Active
+                    @if ($pet->status == 1)
+                        Available
                     @else
-                        Inactive
-                    @endif
-                </td>
-
-                <td>
-                    @php
-                        $extension = substr($pet->photo, -4);
-                    @endphp
-                    @if ($extension != 'webp' && $extension != '.svg')
-                        <img src="{{ public_path().'/images/'.$pet->photo }}" width="96px">
-                    @else
-                        Webp|SVG
+                        Not Available
                     @endif
                 </td>
             </tr>

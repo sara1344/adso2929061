@@ -55,7 +55,7 @@
                                     </a>
                                 </li>
                                 <li class="bg-white/20 hover:bg-white/40 rounded-sm">
-                                    <a {{ url('pets') }}>
+                                    <a href="{{ url('pets') }}">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="size-5" fill="currentColor"
                                             viewBox="0 0 256 256">
                                             <path

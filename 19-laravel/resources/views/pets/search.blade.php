@@ -1,38 +1,39 @@
 @forelse ($pets as $pet)
     <tr class="text-white even:bg-blue-900">
         <td class="hidden md:table-cell">{{ $pet->id }}</td>
-        <td>{{ $pet->name }}</td>
         <td>
             <div class="avatar">
                 <div class="mask mask-squircle w-14">
-                    <img src="{{ asset('images/' . $pet->photo)}}" alt="">
+                    <img src="{{ asset('images/' . $pet->image)}}" alt="">
                 </div>
             </div>
         </td>
-        <td class="hidden md:table-cell">{{ $pet->kind }}</td>
-        
+        <td class="hidden md:table-cell">{{ $pet->name }}</td>
+        <td>{{ $pet->kind }}</td>
         <td class="hidden md:table-cell">{{ $pet->weight }}</td>
-
-        <td class="hidden md:table-cell">{{ $pet->age }}</td>
-        <td class="hidden md:table-cell">{{ $pet->breed }}</td>
-        <td class="hidden md:table-cell">{{ $pet->location }}</td>
+        <td>{{ $pet->age }}</td>
+        <td>{{ $pet->breed }}</td>
+        <td>{{ $pet->location }}</td>
+        <td>{{ $pet->description }}</td>
         <td>
-            @if ($pet->role == 'Admin')
-                <span class="badge badge-outline badge-accent">Admin</span>
+            @if ($pet->active == 1)
+                Active
             @else
-                <span class="badge badge-outline badge-info">Customer</span>
+                Inactive
+            @endif
+        </td>
+        <td>
+            @if ($pet->status == 1)
+                Available
+            @else
+                Not Available
             @endif
         </td>
         <td class="flex gap-1 justify-center items-center h-20">
             <a href="{{ url('pets/' . $pet->id) }}" class="btn btn-outline btnxs btn-default">
                 <svg xmlns="http://www.w3.org/2000/svg" class="size-5" fill="currentcolor" viewBox="0 0 256 256">
                     <path
-                        d="M237.2,151.87v0a47.1,47.1,0,0,0-2.35-5.45L193.26,51.8a7.82,7.82,0,0,0-1.66-2.44,32,32,0,0,0-45.26,0A8,8,0,0,0,144,55V80H112V55a8,8,0,0,0-2.34-5.66,32,32,0,0,0-45.26,0,7.82,7.82,0,0,0-1.66,2.44L21.15,146.4a47.1,47.1,0,0,0-2.35,5.45v0A48,48,0,1,0,112,168V96h32v72a48,48,0,1,
-                    </path>
-                </svg></a>
-            <a href="{{ url('pets/' . $pet->id . '/edit') }}" class="btn btn-outline btnxs btn-default">
-                <svg xmlns="http://www.w3.org/2000/svg" class="size-5" fill="currentColor" viewBox="0 0 256 256">
-                    <path
+                        d="M237.2,151.87v0a47.1,47.1,0,0,0-2.35-5.45L193.26,51.8a7.82,7.82,0,0,0-1.66-2.44,32,32,0,0,0-45.26,0A8,8,0,0,0,144,55V80H112V55a8,8,0,0,0-2.34-5.66,32,32,0,0,0-45.26,0,7.82,7.82,0,0,0-1.66,2.44L21.15,146.4a47.1,47.1,0,0,0-2.35,5.45v0A48,48,0,1,0,112,168V96h32v72a48,48,0,1,0,93.2-16.13ZM76.71,59.75a16,16,0,0,1,19.29-1v73.51a47.9,47.9,0,0,0-46.79-9.92ZM64,200a32,32,0,1,1,32-32A32,32,0,0,1,64,200ZM160,58.74a16,16,0,0,1,19.29,1l27.5,62.58A47.9,47.9,0,0,0,160,132.25ZM192,200a32,32,0,1,1,32-32A32,32,0,0,1,192,200Z">
                     </path>
                 </svg></a>
             <a href="{{ url('pets/' . $pet->id . '/edit') }}" class="btn btn-outline btnxs btn-default">
@@ -42,7 +43,7 @@
                     </path>
                 </svg>
             </a>
-            <a href="javascript:;" class="btn btn-outline btnxs btn-error btn-delete" data-fullname="{{ $pet->fullname }}">
+            <a href="javascript:;" class="btn btn-outline btnxs btn-error btn-delete" data-name="{{ $pet->name }}">
                 <svg xmlns="http://www.w3.org/2000/svg" class="size-5" fill="currentColor" viewBox="0 0 256 256">
                     <path
                         d="M216,48H176V40a24,24,0,0,0-24-24H104A24,24,0,0,0,80,40v8H40a8,8,0,0,0,0,16h8V208a16,16,0,0,0,16,16H192a16,16,0,0,0,16-16V64h8a8,8,0,0,0,0-16ZM96,40a8,8,0,0,1,8-8h48a8,8,0,0,1,8,8v8H96Zm96,168H64V64H192ZM112,104v64a8,8,0,0,1-16,0V104a8,8,0,0,1,16,0Zm48,0v64a8,8,0,0,1-16,0V104a8,8,0,0,1,16,0Z">
@@ -55,9 +56,9 @@
             </form>
         </td>
     </tr>
-    @empty
+@empty
     <tr>
-        <td colspan="7">
+        <td colspan="10">
             <p class="text-xl text-center py-20">No results...</p>
         </td>
     </tr>

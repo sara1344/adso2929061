@@ -75,46 +75,52 @@
             <thead>
                 <tr class="text-white">
                     <th class="hidden md:table-cell">ID</th>
-                    <th>name</th>
                     <th>Photo</th>
+                    <th class="hidden md:table-cell">Name</th>
                     <th>Kind</th>
                     <th class="hidden md:table-cell">Weight</th>
                     <th>Age</th>
-                    <th class="hidden md:table-cell">Breed</th>
+                    <th>Breed</th>
                     <th>Location</th>
-                    <th class="hidden md:table-cell">Description</th>
+                    <th>Description</th>
                     <th>Active</th>
                     <th>Status</th>
+                    <th>Actions</th>
                 </tr>
             </thead>
             <tbody class="datalist">
                 @foreach ($pets as $pet)
                     <tr class="text-white even:bg-blue-900">
                         <td class="hidden md:table-cell">{{ $pet->id }}</td>
-                        <td>{{ $pet->name }}</td>
                         <td>
                             <div class="avatar">
                                 <div class="mask mask-squircle w-14">
-                                    <img src="{{ asset('images/' . $pet->photo) }}" alt="">
+                                    <img src="{{ asset('images/' . $pet->image)}}" alt="">
                                 </div>
                             </div>
                         </td>
+                        <td class="hidden md:table-cell">{{ $pet->name }}</td>
                         <td>{{ $pet->kind }}</td>
-                        
                         <td class="hidden md:table-cell">{{ $pet->weight }}</td>
-                        <td">{{ $pet->age }}</td>
-                        <td class="hidden md:table-cell">{{ $pet->breed }}</td>
+                        <td>{{ $pet->age }}</td>
+                        <td>{{ $pet->breed }}</td>
                         <td>{{ $pet->location }}</td>
-                        <td class="hidden md:table-cell">{{ $pet->description }}</td>
-                        <td>{{ $pet->active }}</td>
-                        <td>{{ $pet->status }}</td>
+                        <td>{{ $pet->description }}</td>
                         <td>
-                            @if ($user->role == 'Admin')
-                                <span class="badge badge-outline badge-accent">Admin</span>
+                            @if ($pet->active == 1)
+                                Active
                             @else
-                                <span class="badge badge-outline badge-info">Customer</span>
+                                Inactive
                             @endif
                         </td>
+                        <td>
+                            @if ($pet->status == 1)
+                                Available
+                            @else
+                                Not Available
+                            @endif
+                        </td>
+
                         <td class="flex gap-1 justify-center items-center h-20">
                             <a href="{{ url('pets/' . $pet->id) }}" class="btn btn-outline btnxs btn-default">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="size-5" fill="currentcolor"
@@ -162,16 +168,17 @@
 
 @section('js')
     <script>
+
         //import file
-        $('.btn-import').click(function(e) {
+        $('.btn-import').click(function (e) {
             $('#file').click()
         })
 
-        $('#file').change(function(e) {
+        $('#file').change(function (e) {
             $(this).parent().submit();
         })
         //Mensajes
-        @if (session('message'))
+        @if(session('message'))
             Swal.fire({
                 position: "top-end",
                 icon: "success",
@@ -181,23 +188,23 @@
             });
         @endif
 
-        //Delete 
-        $('.btn-delete').click(function() {
-            $fullname = $(this).attr('data-fullname')
-            Swal.fire({
-                title: "Are you sure?",
-                text: "The Pet: " + $name + "  will be deleted!",
-                icon: "warning",
-                showCancelButton: true,
-                confirmButtonColor: "#3085d6",
-                cancelButtonColor: "#d33",
-                confirmButtonText: "Yes, delete it!"
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    $(this).next().submit()
-                }
-            });
-        })
+            //Delete 
+            $('.btn-delete').click(function () {
+                $name = $(this).attr('data-name')
+                Swal.fire({
+                    title: "Are you sure?",
+                    text: "The User: " + $name + "  will be deleted!",
+                    icon: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "#3085d6",
+                    cancelButtonColor: "#d33",
+                    confirmButtonText: "Yes, delete it!"
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        $(this).next().submit()
+                    }
+                });
+            })
 
 
         // Search - - - - - - - - - - - - - - - -
@@ -212,33 +219,30 @@
                 timeout = setTimeout(later, wait)
             }
         }
-        const search = debounce(function(query) {
+        const search = debounce(function (query) {
 
             $token = $('input[name=_token]').val()
 
-            $.post("search/users", {
-                    'q': query,
-                    '_token': $token
-                },
-                function(data) {
+            $.post("search/pets", { 'q': query, '_token': $token },
+                function (data) {
                     $('.datalist').html(data).hide().fadeIn(1000)
                 }
             )
         }, 500)
-        $('body').on('input', '#qsearch', function(event) {
+        $('body').on('input', '#qsearch', function (event) {
             event.preventDefault()
             const query = $(this).val()
 
             $('.datalist').html(`<tr>
-                                            <td colspan="7" class="text-center py-18">
-                                                <span class="loading loading-spinner loading-xl"></span>
-                                            </td>
-                                        </tr>`)
+                    <td colspan="7" class="text-center py-18">
+                        <span class="loading loading-spinner loading-xl"></span>
+                    </td>
+                </tr>`)
             if (query != '') {
                 search(query)
             } else {
                 setTimeout(() => {
-                    window.location.replace('users')
+                    window.location.replace('pets')
                 }, 500)
             }
         })

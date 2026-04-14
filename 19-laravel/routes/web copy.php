@@ -11,7 +11,7 @@ Route::get('helloworld',function(){
 });
 Route::get('sayhello/{name}',function(){
     $say = '';
-    return '<h1> Hello: ' . request()->name . '</h1>';
+    return '<h1>👍 Hello: ' . request()->name . '</h1>';
 });
 Route::get('getallpets',function(){
     $pets = App\Models\Pet::take(10)->get();
