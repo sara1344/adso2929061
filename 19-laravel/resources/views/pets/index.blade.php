@@ -22,7 +22,7 @@
                         d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm48-88a8,8,0,0,1-8,8H136v32a8,8,0,0,1-16,0V136H88a8,8,0,0,1,0-16h32V88a8,8,0,0,1,16,0v32h32A8,8,0,0,1,176,128Z">
                     </path>
                 </svg>
-                <span class="hidden md:inline">Add Pet</span>
+                <span class="hidden md:inline">Add User</span>
             </a>
             <a class="btn btn-outline text-white hover:bg-[#fff6] hover:text-white join-item"
                 href="{{ url('export/pets/pdf') }}">
@@ -58,16 +58,14 @@
             </form>
         </div>
         {{-- Search --}}
-        <label class="input text-white bg-[#0009] w-58 md:w-112 outline outline-white mb-10">
-            <svg class="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2.5" fill="none" stroke="currentColor">
-                    <circle cx="11" cy="11" r="8"></circle>
-                    <path d="m21 21-4.3-4.3"></path>
-                </g>
-            </svg>
-            <input type="search" placeholder="Search..." name="qsearch" id="qsearch" />
-        </label>
+        <form action="{{ url('pets/search') }}" method="GET">
+            <label class="input text-white bg-[#0009] w-58 md:w-112 outline outline-white mb-10">
+           
+                <input type="search" placeholder="Search..." name="qsearch" id="qsearch" value="{{ request('qsearch') }}" />
+            </label>
+        </form>
     </div>
+
 
     <div class="overflow-x-auto rounded-box text-white border border-base-content/5 bg-black/70">
         <table class="table">
@@ -90,7 +88,7 @@
             </thead>
             <tbody class="datalist">
                 @foreach ($pets as $pet)
-                    <tr class="text-white even:bg-blue-900">
+                    <tr class="text-white even:bg-gray-900">
                         <td class="hidden md:table-cell">{{ $pet->id }}</td>
                         <td>
                             <div class="avatar">
@@ -234,10 +232,10 @@
             const query = $(this).val()
 
             $('.datalist').html(`<tr>
-                    <td colspan="7" class="text-center py-18">
-                        <span class="loading loading-spinner loading-xl"></span>
-                    </td>
-                </tr>`)
+                                    <td colspan="7" class="text-center py-18">
+                                        <span class="loading loading-spinner loading-xl"></span>
+                                    </td>
+                                </tr>`)
             if (query != '') {
                 search(query)
             } else {

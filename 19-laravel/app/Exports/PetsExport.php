@@ -25,6 +25,7 @@ public function columnWidths(): array
         'B' => 30,  
         'C' => 35,            
         'D' => 15,            
+        
         'E' => 24,            
     ];
 }
