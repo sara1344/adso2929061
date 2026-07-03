@@ -19,14 +19,14 @@ class AuthenticateToken
         $token = $request->header('Authorization');
         
         if (!$token) {
-            return response()->json(['message' => 'Token not provided'], 401);
+            return response()->json(['message' => 'Su token no es válido'], 401);
         }
 
         $token = str_replace('Bearer ', '', $token);
         $user = User::where('remember_token', $token)->first();
 
         if (!$user) {
-            return response()->json(['message' => 'Invalid token'], 401);
+            return response()->json(['message' => 'Su token no es válido'], 401);
         }
         return $next($request);
     }

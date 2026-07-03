@@ -23,7 +23,9 @@ Route::post('/logout', [AuthController::class, 'logout'])->middleware('auth.toke
 
     # Endpoint: http://127.0.0.1:8000/api/pets/edit/12
     Route::put('pets/edit/{id}', [PetController::class, 'update']);
+    Route::post('pets/edit/{id}', [PetController::class, 'update']);
 
     # Endpoint: http://127.0.0.1:8000/api/pets/delete/12
+    Route::get('pets/delete-confirm/{id}', [PetController::class, 'deleteConfirm']);
     Route::delete('pets/delete/{id}', [PetController::class, 'destroy']);
 });

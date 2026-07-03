@@ -44,4 +44,25 @@ function Example2JSX() {
     );
 }
 
+const style = {
+    container: {
+        backgroundColor: '#f9f9f9',
+        border: '1px dashed #ccc',
+        borderRadius: '8px',
+        padding: '20px',
+        marginTop: '20px',
+    },
+    title: {
+        color: '#3c5aa6',
+    },
+    img: {
+        width: '120px',
+        height: '120px',
+        objectFit: 'contain',
+    },
+    ul: {
+        textAlign: 'left',
+    },
+};
+
 export default Example2JSX;

@@ -1,5 +1,5 @@
 import BtnBack from "../components/BtnBack";
-import CardPokemon from "../components/CardPokemon";
+import CardPokemon from "../components/CardPokemons";
 
 function Example3Props() {
 
@@ -33,5 +33,15 @@ function Example3Props() {
         </div>
     );
 }
+
+const styles = {
+    cards: {
+        display: 'flex',
+        gap: '20px',
+        flexWrap: 'wrap',
+        justifyContent: 'center',
+        marginTop: '20px',
+    },
+};
 
 export default Example3Props;
